@@ -1,41 +1,25 @@
 document.addEventListener('DOMContentLoaded', function() {
   const htmlElement = document.documentElement;
   const darkModeToggle = document.getElementById('dark-mode-toggle');
-  const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)');
-  
-  function updateDarkMode() {
-    const isDark = prefersDarkMode.matches;
-    if (isDark) {
-      htmlElement.style.colorScheme = 'dark';
-      if (darkModeToggle) {
-        darkModeToggle.textContent = '☀️';
-      }
-    } else {
-      htmlElement.style.colorScheme = 'light';
-      if (darkModeToggle) {
-        darkModeToggle.textContent = '🌙';
-      }
+
+  function applyMode(isDark) {
+    htmlElement.classList.toggle('dark-mode', isDark);
+    htmlElement.style.colorScheme = isDark ? 'dark' : 'light';
+    if (darkModeToggle) {
+      darkModeToggle.textContent = isDark ? '☀️' : '🌙';
     }
   }
-  
-  updateDarkMode();
-  
+
+  // El sitio siempre arranca en modo claro, salvo que el visitante
+  // haya elegido modo oscuro antes (se guarda en su navegador).
+  const storedScheme = localStorage.getItem('colorScheme');
+  applyMode(storedScheme === 'dark');
+
   if (darkModeToggle) {
     darkModeToggle.addEventListener('click', function() {
-      const isDark = htmlElement.style.colorScheme === 'dark';
-      htmlElement.style.colorScheme = isDark ? 'light' : 'dark';
-      this.textContent = isDark ? '🌙' : '☀️';
-      localStorage.setItem('colorScheme', isDark ? 'light' : 'dark');
+      const nowDark = !htmlElement.classList.contains('dark-mode');
+      applyMode(nowDark);
+      localStorage.setItem('colorScheme', nowDark ? 'dark' : 'light');
     });
-  }
-  
-  prefersDarkMode.addEventListener('change', updateDarkMode);
-  
-  const storedScheme = localStorage.getItem('colorScheme');
-  if (storedScheme) {
-    htmlElement.style.colorScheme = storedScheme;
-    if (darkModeToggle) {
-      darkModeToggle.textContent = storedScheme === 'dark' ? '☀️' : '🌙';
-    }
   }
 });
