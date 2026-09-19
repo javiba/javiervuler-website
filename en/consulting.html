@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Consulting &amp; Mortgages — Vuler Press</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root { --ink: #1C2B22; --primary: #2D5A3D; --primary-light: #3D7A4D; --terracotta: #B8654A; --paper: #F5EFE1; --stone: #EAE0CB; --line: #D8CBA8; --white: #FFFDF8; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Lora', Georgia, serif; font-size: 17px; line-height: 1.65; color: var(--ink); background: var(--paper); }
+  .display { font-family: 'Archivo Black', 'Helvetica Neue', sans-serif; line-height: 1.1; letter-spacing: -0.01em; }
+  .container { max-width: 1180px; margin: 0 auto; padding: 0 2rem; }
+  header { padding: 1.75rem 0; border-bottom: 1px solid var(--line); }
+  nav { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-family: 'Archivo Black', sans-serif; font-size: 1.15rem; color: var(--ink); text-decoration: none; }
+  .nav-links { display: flex; gap: 2.25rem; list-style: none; }
+  .nav-links a { color: var(--ink); text-decoration: none; font-size: 0.95rem; }
+  .nav-links a.active { color: var(--primary); font-weight: 600; }
+  .nav-links a:hover { color: var(--primary); }
+  .hero { padding: 5rem 0 4rem; }
+  .hero-grid { display: grid; grid-template-columns: 1.3fr 0.9fr; gap: 3.5rem; align-items: center; }
+  .kicker { display: inline-block; font-size: 0.85rem; color: var(--terracotta); margin-bottom: 1rem; font-family: 'Lora', serif; font-style: italic; }
+  .hero h1 { font-size: 2.6rem; color: var(--ink); margin-bottom: 1.5rem; max-width: 14ch; }
+  .hero-subtitle { font-size: 1.1rem; color: #4A4032; max-width: 48ch; margin-bottom: 2rem; }
+  .cta-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn { padding: 0.9rem 1.75rem; font-family: 'Lora', serif; font-weight: 600; font-size: 0.95rem; text-decoration: none; display: inline-block; border-radius: 3px; border: 1.5px solid transparent; }
+  .btn-primary { background: var(--primary); color: var(--white); }
+  .btn-primary:hover { background: var(--primary-light); }
+  .btn-secondary { border-color: var(--ink); color: var(--ink); }
+  .btn-secondary:hover { background: var(--ink); color: var(--white); }
+  .trust-panel { background: var(--white); border: 1.5px solid var(--ink); padding: 2.5rem 2rem; position: relative; }
+  .trust-panel::before { content: ""; position: absolute; inset: 6px; border: 1px solid var(--line); pointer-events: none; }
+  .trust-stat { display: flex; align-items: baseline; gap: 0.75rem; padding: 0.9rem 0; border-bottom: 1px solid var(--stone); }
+  .trust-stat:last-child { border-bottom: none; }
+  .trust-stat .num { font-family: 'Archivo Black', sans-serif; font-size: 2rem; color: var(--primary); line-height: 1; min-width: 3.2ch; }
+  .trust-stat .label { font-size: 0.92rem; color: #4A4032; }
+  .who-for { background: var(--white); padding: 4rem 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .who-for h2 { font-size: 1.9rem; margin-bottom: 2.5rem; max-width: 22ch; }
+  .who-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+  .who-card { padding: 1.5rem; background: var(--paper); border: 1px solid var(--line); }
+  .who-card h3 { font-family: 'Lora', serif; font-size: 1rem; margin-bottom: 0.4rem; }
+  .who-card p { font-size: 0.88rem; color: #4A4032; }
+  .process { padding: 4.5rem 0; }
+  .process h2 { font-size: 1.9rem; color: var(--ink); margin-bottom: 0.5rem; max-width: 22ch; }
+  .process-lead { color: #4A4032; max-width: 55ch; margin-bottom: 3rem; }
+  .step-list { border-top: 1px solid var(--line); }
+  .step-row { display: grid; grid-template-columns: 70px 1fr; gap: 1.5rem; padding: 1.75rem 0; border-bottom: 1px solid var(--line); }
+  .step-row .step-num { font-family: 'Archivo Black', sans-serif; font-size: 1.5rem; color: var(--terracotta); }
+  .step-row h3 { font-family: 'Lora', serif; font-weight: 600; font-size: 1.1rem; margin-bottom: 0.4rem; }
+  .step-row p { font-size: 0.95rem; color: #4A4032; max-width: 62ch; }
+  .why { background: var(--stone); padding: 4.5rem 0; border-top: 1px solid var(--line); }
+  .why h2 { font-size: 1.9rem; max-width: 18ch; margin-bottom: 2.5rem; }
+  .why-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2rem; }
+  .why-card { background: var(--white); padding: 1.5rem; border-top: 3px solid var(--primary); }
+  .why-card:nth-child(2) { border-top-color: var(--terracotta); }
+  .why-card:nth-child(3) { border-top-color: var(--ink); }
+  .why-card h3 { font-family: 'Lora', serif; font-size: 1.1rem; margin-bottom: 0.5rem; }
+  .why-card p { font-size: 0.92rem; color: #4A4032; }
+  .final-cta { padding: 4.5rem 0; text-align: center; }
+  .final-cta h2 { font-size: 1.9rem; margin-bottom: 1rem; max-width: 26ch; margin-left: auto; margin-right: auto; }
+  .final-cta p { color: #4A4032; max-width: 50ch; margin: 0 auto 1.75rem; }
+  footer { background: var(--ink); color: var(--paper); padding: 2.5rem 0; text-align: center; font-size: 0.85rem; }
+  footer a { color: var(--paper); }
+  @media (max-width: 900px) {
+    .hero-grid { grid-template-columns: 1fr; }
+    .who-grid { grid-template-columns: 1fr 1fr; }
+    .why-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <a href="index.html" class="logo">Vuler Press</a>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="book.html">Book</a></li>
+          <li><a href="consulting.html" class="active">Consulting &amp; Mortgages</a></li>
+          <li><a href="about.html">About Me</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="kicker">Personalized mortgage advisory</span>
+        <h1 class="display">Buy your property in Spain with no surprises</h1>
+        <p class="hero-subtitle">I guide you through the entire financing process, from the first calculation to signing at the notary. Specialized in international buyers, expats, and non-residents.</p>
+        <div class="cta-buttons">
+          <a href="contact.html" class="btn btn-primary">Book a consultation</a>
+          <a href="book.html" class="btn btn-secondary">See the book</a>
+        </div>
+      </div>
+      <div class="trust-panel">
+        <div class="trust-stat">
+          <span class="num">10+</span>
+          <span class="label">years in real estate and mortgage advisory, across several countries</span>
+        </div>
+        <div class="trust-stat">
+          <span class="num">3</span>
+          <span class="label">working languages: Spanish, English, and French</span>
+        </div>
+        <div class="trust-stat">
+          <span class="num">1st</span>
+          <span class="label">consultation to understand your case, no obligation</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="who-for">
+    <div class="container">
+      <h2 class="display">Who this advisory is for</h2>
+      <div class="who-grid">
+        <div class="who-card">
+          <h3>Non-resident buyers</h3>
+          <p>You don't live in Spain but want to buy here.</p>
+        </div>
+        <div class="who-card">
+          <h3>Expats</h3>
+          <p>You already live in Spain and need local guidance.</p>
+        </div>
+        <div class="who-card">
+          <h3>Income in several currencies</h3>
+          <p>Your finances cross borders and currencies.</p>
+        </div>
+        <div class="who-card">
+          <h3>Residents seeking clarity</h3>
+          <p>You live in Spain and want the process explained properly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="process">
+    <div class="container">
+      <h2 class="display">The full process</h2>
+      <p class="process-lead">Here's the real path, step by step, exactly as I explain it to every client before we start.</p>
+      <div class="step-list">
+        <div class="step-row">
+          <span class="step-num display">01</span>
+          <div>
+            <h3>Starting point</h3>
+            <p>You already have a property in mind, or want to know upfront how much the bank could lend you.</p>
+          </div>
+        </div>
+        <div class="step-row">
+          <span class="step-num display">02</span>
+          <div>
+            <h3>Profile review</h3>
+            <p>I review your income, work history, type of employment, marital status, and tax filings to determine your borrowing capacity.</p>
+          </div>
+        </div>
+        <div class="step-row">
+          <span class="step-num display">03</span>
+          <div>
+            <h3>Choosing banks</h3>
+            <p>I choose the banks that best match your profile and offer the best conditions. Their business managers give us a first read on whether it's feasible and what the terms would be.</p>
+          </div>
+        </div>
+        <div class="step-row">
+          <span class="step-num display">04</span>
+          <div>
+            <h3>Valuation</h3>
+            <p>Once you agree to the terms and have signed the deposit, the property valuation takes place.</p>
+          </div>
+        </div>
+        <div class="step-row">
+          <span class="step-num display">05</span>
+          <div>
+            <h3>Risk department</h3>
+            <p>With the valuation done, the file goes to the bank's Risk department, which gives final approval.</p>
+          </div>
+        </div>
+        <div class="step-row">
+          <span class="step-num display">06</span>
+          <div>
+            <h3>Binding offer and signing</h3>
+            <p>The bank issues the FEIN and the FiAE, the binding offer. You choose a notary and, if buying with a mortgage, complete the legal transparency formalities before signing the deed.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="why">
+    <div class="container">
+      <h2 class="display">How I can help you</h2>
+      <div class="why-grid">
+        <div class="why-card">
+          <h3>I know the system from the inside</h3>
+          <p>More than a decade working in real estate and mortgage advisory across several countries, not reading about it.</p>
+        </div>
+        <div class="why-card">
+          <h3>I speak your language, literally</h3>
+          <p>Consultations in Spanish, English, or French, without losing nuance in translation.</p>
+        </div>
+        <div class="why-card">
+          <h3>No fine print</h3>
+          <p>I walk you through the bank's processes step by step, the terms they offer you, and I do what I can to improve the offer you end up receiving.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="final-cta">
+    <div class="container">
+      <h2 class="display">Ready for the next step?</h2>
+      <p>Write to me and let's talk about your situation. The first consultation is to understand your case, no obligation.</p>
+      <a href="contact.html" class="btn btn-primary">Book a consultation</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      Vuler Press — Mortgage Advisory in Spain · <a href="contact.html">Contact</a>
+    </div>
+  </footer>
+</body>
+</html>
