@@ -12,6 +12,20 @@
     --ink: #1C2B22; --primary: #2D5A3D; --primary-light: #3D7A4D; --terracotta: #B8654A;
     --paper: #F5EFE1; --stone: #EAE0CB; --line: #D8CBA8; --white: #FFFDF8;
   }
+  :root.dark-mode {
+    --ink: #F5EFE1;
+    --paper: #1C2B22;
+    --white: #24352A;
+    --stone: #2E4033;
+    --line: #3E5245;
+  }
+  .lang-selector { display: flex; gap: 0.4rem; align-items: center; }
+  .lang-selector a { padding: 0.3rem 0.55rem; font-size: 0.8rem; border: 1px solid var(--line); border-radius: 3px; color: var(--ink); text-decoration: none; }
+  .lang-selector a.active { background: var(--primary); color: var(--white); border-color: var(--primary); }
+  .lang-selector a:hover:not(.active) { border-color: var(--primary); }
+  .mode-toggle { background: none; border: 1px solid var(--line); border-radius: 3px; padding: 0.3rem 0.55rem; cursor: pointer; font-size: 0.95rem; line-height: 1; color: var(--ink); }
+  .nav-right { display: flex; align-items: center; gap: 1rem; }
+
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { font-family: 'Lora', Georgia, serif; font-size: 17px; line-height: 1.65; color: var(--ink); background: var(--paper); }
   .display { font-family: 'Archivo Black', 'Helvetica Neue', sans-serif; line-height: 1.1; letter-spacing: -0.01em; }
@@ -82,6 +96,10 @@
           <li><a href="about.html">About Me</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
+        <div class="nav-right">
+          <div class="lang-selector"><a href="../en/book.html" class="active">EN</a><a href="../es/book.html">ES</a><a href="../fr/book.html">FR</a></div>
+          <button id="dark-mode-toggle" class="mode-toggle" aria-label="Toggle dark mode">🌙</button>
+        </div>
       </nav>
     </div>
   </header>
@@ -1262,5 +1280,25 @@ oAKKKKACiiigAooooAKKKKAP/9k=" alt="Buying Properties in Spain — book cover">
       Vuler Press — Mortgage Advisory in Spain · <a href="contact.html">Contact</a>
     </div>
   </footer>
+
+  <script>
+    (function() {
+      const htmlEl = document.documentElement;
+      const toggleBtn = document.getElementById('dark-mode-toggle');
+      function applyMode(isDark) {
+        htmlEl.classList.toggle('dark-mode', isDark);
+        if (toggleBtn) toggleBtn.textContent = isDark ? '☀️' : '🌙';
+      }
+      const stored = localStorage.getItem('colorScheme');
+      applyMode(stored === 'dark');
+      if (toggleBtn) {
+        toggleBtn.addEventListener('click', function() {
+          const nowDark = !htmlEl.classList.contains('dark-mode');
+          applyMode(nowDark);
+          localStorage.setItem('colorScheme', nowDark ? 'dark' : 'light');
+        });
+      }
+    })();
+  </script>
 </body>
 </html>
