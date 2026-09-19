@@ -1,145 +1,247 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Consultoría e Hipotecas - Vuler Press</title>
-    <meta name="description" content="Personal shopper inmobiliario y asesoría hipotecaria para compradores internacionales en España.">
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-    <link rel="stylesheet" href="/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Consultoría e Hipotecas — Vuler Press</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1C2B22;
+    --primary: #2D5A3D;
+    --primary-light: #3D7A4D;
+    --terracotta: #B8654A;
+    --paper: #F5EFE1;
+    --stone: #EAE0CB;
+    --line: #D8CBA8;
+    --white: #FFFDF8;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Lora', Georgia, serif; font-size: 17px; line-height: 1.65; color: var(--ink); background: var(--paper); }
+  .display { font-family: 'Archivo Black', 'Helvetica Neue', sans-serif; line-height: 1.1; letter-spacing: -0.01em; }
+  .container { max-width: 1180px; margin: 0 auto; padding: 0 2rem; }
+
+  header { padding: 1.75rem 0; border-bottom: 1px solid var(--line); }
+  nav { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-family: 'Archivo Black', sans-serif; font-size: 1.15rem; color: var(--ink); text-decoration: none; }
+  .nav-links { display: flex; gap: 2.25rem; list-style: none; }
+  .nav-links a { color: var(--ink); text-decoration: none; font-size: 0.95rem; }
+  .nav-links a.active { color: var(--primary); font-weight: 600; }
+  .nav-links a:hover { color: var(--primary); }
+
+  .hero { padding: 5rem 0 4rem; }
+  .hero-grid { display: grid; grid-template-columns: 1.3fr 0.9fr; gap: 3.5rem; align-items: center; }
+  .kicker { display: inline-block; font-size: 0.85rem; color: var(--terracotta); margin-bottom: 1rem; font-family: 'Lora', serif; font-style: italic; }
+  .hero h1 { font-size: 2.8rem; color: var(--ink); margin-bottom: 1.5rem; max-width: 13ch; }
+  .hero-subtitle { font-size: 1.1rem; color: #4A4032; max-width: 48ch; margin-bottom: 2rem; }
+  .cta-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn { padding: 0.9rem 1.75rem; font-family: 'Lora', serif; font-weight: 600; font-size: 0.95rem; text-decoration: none; display: inline-block; border-radius: 3px; border: 1.5px solid transparent; }
+  .btn-primary { background: var(--primary); color: var(--white); }
+  .btn-primary:hover { background: var(--primary-light); }
+  .btn-secondary { border-color: var(--ink); color: var(--ink); }
+  .btn-secondary:hover { background: var(--ink); color: var(--white); }
+
+  .trust-panel { background: var(--white); border: 1.5px solid var(--ink); padding: 2.5rem 2rem; position: relative; }
+  .trust-panel::before { content: ""; position: absolute; inset: 6px; border: 1px solid var(--line); pointer-events: none; }
+  .trust-stat { display: flex; align-items: baseline; gap: 0.75rem; padding: 0.9rem 0; border-bottom: 1px solid var(--stone); }
+  .trust-stat:last-child { border-bottom: none; }
+  .trust-stat .num { font-family: 'Archivo Black', sans-serif; font-size: 2rem; color: var(--primary); line-height: 1; min-width: 3.2ch; }
+  .trust-stat .label { font-size: 0.92rem; color: #4A4032; }
+
+  .who-for { background: var(--white); padding: 4rem 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .who-for h2 { font-size: 1.9rem; margin-bottom: 2.5rem; max-width: 22ch; }
+  .who-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+  .who-card { padding: 1.5rem; background: var(--paper); border: 1px solid var(--line); }
+  .who-card h3 { font-family: 'Lora', serif; font-size: 1rem; margin-bottom: 0.4rem; }
+  .who-card p { font-size: 0.88rem; color: #4A4032; }
+
+  .process { padding: 4.5rem 0; }
+  .process h2 { font-size: 1.9rem; color: var(--ink); margin-bottom: 0.5rem; max-width: 22ch; }
+  .process-lead { color: #4A4032; max-width: 55ch; margin-bottom: 3rem; }
+  .step-list { border-top: 1px solid var(--line); }
+  .step-row { display: grid; grid-template-columns: 70px 1fr; gap: 1.5rem; padding: 1.75rem 0; border-bottom: 1px solid var(--line); }
+  .step-row .step-num { font-family: 'Archivo Black', sans-serif; font-size: 1.5rem; color: var(--terracotta); }
+  .step-row h3 { font-family: 'Lora', serif; font-weight: 600; font-size: 1.1rem; margin-bottom: 0.4rem; }
+  .step-row p { font-size: 0.95rem; color: #4A4032; max-width: 62ch; }
+
+  .why { background: var(--stone); padding: 4.5rem 0; border-top: 1px solid var(--line); }
+  .why h2 { font-size: 1.9rem; max-width: 18ch; margin-bottom: 2.5rem; }
+  .why-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2rem; }
+  .why-card { background: var(--white); padding: 1.5rem; border-top: 3px solid var(--primary); }
+  .why-card:nth-child(2) { border-top-color: var(--terracotta); }
+  .why-card:nth-child(3) { border-top-color: var(--ink); }
+  .why-card h3 { font-family: 'Lora', serif; font-size: 1.1rem; margin-bottom: 0.5rem; }
+  .why-card p { font-size: 0.92rem; color: #4A4032; }
+
+  .final-cta { padding: 4.5rem 0; text-align: center; }
+  .final-cta h2 { font-size: 1.9rem; margin-bottom: 1rem; max-width: 26ch; margin-left: auto; margin-right: auto; }
+  .final-cta p { color: #4A4032; max-width: 50ch; margin: 0 auto 1.75rem; }
+
+  footer { background: var(--ink); color: var(--paper); padding: 2.5rem 0; text-align: center; font-size: 0.85rem; }
+  footer a { color: var(--paper); }
+
+  @media (max-width: 900px) {
+    .hero-grid { grid-template-columns: 1fr; }
+    .who-grid { grid-template-columns: 1fr 1fr; }
+    .why-grid { grid-template-columns: 1fr; }
+  }
+</style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <nav>
-                <div class="logo">Vuler Press</div>
-                <ul class="nav-links">
-                    <li><a href="/es/">Inicio</a></li>
-                    <li><a href="/es/book.html">Libro</a></li>
-                    <li><a href="/es/consulting.html">Consultoría</a></li>
-                    <li><a href="/es/about.html">Sobre Mí</a></li>
-                    <li><a href="/es/contact.html">Contacto</a></li>
-                </ul>
-                <div class="nav-controls">
-                    <div class="lang-selector">
-                        <a href="/en/consulting.html">EN</a>
-                        <a href="/es/consulting.html" class="active">ES</a>
-                        <a href="/fr/consulting.html">FR</a>
-                    </div>
-                    <button class="dark-mode-toggle" id="dark-mode-toggle">🌙</button>
-                </div>
-            </nav>
+
+  <header>
+    <div class="container">
+      <nav>
+        <a href="index.html" class="logo">Vuler Press</a>
+        <ul class="nav-links">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="book.html">Libro</a></li>
+          <li><a href="consulting.html" class="active">Consultoría e Hipotecas</a></li>
+          <li><a href="about.html">Sobre Mí</a></li>
+          <li><a href="contact.html">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="kicker">Asesoría hipotecaria personalizada</span>
+        <h1 class="display">Compra tu propiedad en España sin sorpresas</h1>
+        <p class="hero-subtitle">Te acompaño en todo el proceso de financiación, desde el primer cálculo hasta la firma en notaría. Especializado en compradores internacionales, expatriados y no residentes.</p>
+        <div class="cta-buttons">
+          <a href="contact.html" class="btn btn-primary">Agendar una consulta</a>
+          <a href="book.html" class="btn btn-secondary">Ver el libro</a>
         </div>
-    </header>
-
-    <main>
-        <section class="hero">
-            <div class="container">
-                <h1>Consultoría e Hipotecas</h1>
-                <p class="hero-subtitle">Desde la búsqueda hasta el cierre. Tu asesor en cada decisión.</p>
-            </div>
-        </section>
-
-        <section class="section">
-            <div class="container">
-                <h2>Para Quién es Esto</h2>
-                <p>Ya sea que financies o compres al contado, trabajo como tu personal shopper inmobiliario y asesor. Para compras financiadas, me especializo en estrategia hipotecaria y selección de banco. Para compradores cash, me enfoco en evaluación de propiedades, due diligence y guía de mercado para asegurar que tomes la decisión correcta.</p>
-            </div>
-        </section>
-
-        <section class="section">
-            <div class="container">
-                <h2>Qué Ofrezco</h2>
-                
-                <div class="cards-grid">
-                    <div class="card">
-                        <h3>Personal Shopper Inmobiliario</h3>
-                        <p>Encuentra, evalúa y negocia propiedades alineadas con tus objetivos. Navega el mercado con claridad en precios, estado legal y potencial de inversión.</p>
-                    </div>
-                    <div class="card">
-                        <h3>Estrategia Hipotecaria</h3>
-                        <p>Selección de banco, optimización de aprobación y negociación de tasas. Maximiza tu poder de compra. Entiende exactamente qué ven los bancos y cómo posicionar tu solicitud.</p>
-                    </div>
-                    <div class="card">
-                        <h3>Evaluación de Propiedades</h3>
-                        <p>Cumplimiento legal, evaluación estructural, posicionamiento de mercado y due diligence. Protégete antes de comprometerte.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <div class="container">
-                <h2>El Proceso</h2>
-                <p>Cada compra es diferente. Aquí es cómo típicamente trabajamos:</p>
-                
-                <div style="max-width: 700px; margin: 2rem auto;">
-                    <div style="background: var(--bg-surface); padding: 1.5rem; margin-bottom: 1.5rem; border-radius: 8px; border-left: 4px solid var(--primary);">
-                        <h4 style="margin-top: 0;">1. Consulta Inicial</h4>
-                        <p>Hablamos sobre tu situación: presupuesto, preferencias de ubicación, timeline, y qué te importa más. Sin presión. Solo claridad.</p>
-                    </div>
-                    
-                    <div style="background: var(--bg-surface); padding: 1.5rem; margin-bottom: 1.5rem; border-radius: 8px; border-left: 4px solid var(--primary);">
-                        <h4 style="margin-top: 0;">2. Análisis de Mercado y Bancos</h4>
-                        <p>Evalúo el mercado, reviso tus opciones hipotecarias e identifico qué bancos se alinean con tu perfil.</p>
-                    </div>
-                    
-                    <div style="background: var(--bg-surface); padding: 1.5rem; margin-bottom: 1.5rem; border-radius: 8px; border-left: 4px solid var(--primary);">
-                        <h4 style="margin-top: 0;">3. Búsqueda y Evaluación de Propiedades</h4>
-                        <p>Encontramos propiedades que cumplen tus criterios, evaluamos cada una por problemas legales y estructurales, y evaluamos posicionamiento de mercado.</p>
-                    </div>
-                    
-                    <div style="background: var(--bg-surface); padding: 1.5rem; margin-bottom: 1.5rem; border-radius: 8px; border-left: 4px solid var(--primary);">
-                        <h4 style="margin-top: 0;">4. Negociación y Solicitud</h4>
-                        <p>Te ayudo a estructurar tu oferta y te guío en la solicitud hipotecaria para maximizar las probabilidades de aprobación.</p>
-                    </div>
-                    
-                    <div style="background: var(--bg-surface); padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--primary);">
-                        <h4 style="margin-top: 0;">5. Cierre y Después</h4>
-                        <p>Revisión legal, inspecciones finales y guía durante el cierre. Sabes exactamente qué esperar en cada paso.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <div class="container">
-                <h2>¿Listo para Hablar?</h2>
-                <p>Agenda una consulta para discutir tu situación. Aclararemos tus opciones y entenderás exactamente qué viene después.</p>
-                <div style="text-align: center; margin-top: 2rem;">
-                    <a href="/es/contact.html" class="btn btn-primary" style="display: inline-block; padding: 0.75rem 2rem;">Agendar Consulta</a>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Contacto</h4>
-                    <a href="mailto:javier@javiervuler.com">📧 javier@javiervuler.com</a>
-                    <a href="https://wa.me/javiervuler">📱 WhatsApp @javiervuler</a>
-                    <a href="tel:+34625410738">📞 +34 625 410 738</a>
-                </div>
-                <div class="footer-section">
-                    <h4>Vuler Press</h4>
-                    <a href="/es/book.html">El Libro</a>
-                    <a href="/es/consulting.html">Consultoría</a>
-                    <a href="/es/about.html">Sobre Mí</a>
-                </div>
-                <div class="footer-section">
-                    <h4>Legal</h4>
-                    <a href="/es/contact.html">Contacto</a>
-                    <a href="/es/privacy.html">Privacidad</a>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Vuler Press. Todos los derechos reservados. | www.javiervuler.com</p>
-            </div>
+      </div>
+      <div class="trust-panel">
+        <div class="trust-stat">
+          <span class="num">10+</span>
+          <span class="label">años en el sector inmobiliario y asesoría hipotecaria, en varios países</span>
         </div>
-    </footer>
+        <div class="trust-stat">
+          <span class="num">3</span>
+          <span class="label">idiomas de trabajo: español, inglés y francés</span>
+        </div>
+        <div class="trust-stat">
+          <span class="num">1ª</span>
+          <span class="label">consulta para entender tu caso, sin compromiso</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <script src="/main.js"></script>
+  <section class="who-for">
+    <div class="container">
+      <h2 class="display">Para quién es esta asesoría</h2>
+      <div class="who-grid">
+        <div class="who-card">
+          <h3>Compradores no residentes</h3>
+          <p>No vives en España pero quieres comprar aquí.</p>
+        </div>
+        <div class="who-card">
+          <h3>Expatriados</h3>
+          <p>Ya vives en España y necesitas orientación local.</p>
+        </div>
+        <div class="who-card">
+          <h3>Ingresos en varias monedas</h3>
+          <p>Tu situación financiera cruza fronteras y monedas.</p>
+        </div>
+        <div class="who-card">
+          <h3>Residentes que buscan claridad</h3>
+          <p>Vives en España y quieres el proceso bien explicado.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="process">
+    <div class="container">
+      <h2 class="display">El proceso completo</h2>
+      <p class="process-lead">Así es el camino real, paso a paso, tal como se lo explico a cada cliente antes de empezar.</p>
+      <div class="step-list">
+        <div class="step-row">
+          <span class="step-num display">01</span>
+          <div>
+            <h3>Punto de partida</h3>
+            <p>Ya tienes una propiedad en vista, o quieres saber de entrada cuánto te puede llegar a prestar el banco.</p>
+          </div>
+        </div>
+        <div class="step-row">
+          <span class="step-num display">02</span>
+          <div>
+            <h3>Estudio de tu perfil</h3>
+            <p>Reviso tus ingresos, vida laboral, tipo de trabajo, estado civil y declaraciones de impuestos para determinar tu nivel de endeudamiento posible.</p>
+          </div>
+        </div>
+        <div class="step-row">
+          <span class="step-num display">03</span>
+          <div>
+            <h3>Elección de bancos</h3>
+            <p>Elijo los bancos que mejor se ajustan a tu perfil y ofrecen las mejores condiciones. Sus directores comerciales nos dan una primera idea de si es posible y cuáles serían las condiciones.</p>
+          </div>
+        </div>
+        <div class="step-row">
+          <span class="step-num display">04</span>
+          <div>
+            <h3>Tasación</h3>
+            <p>Si estás de acuerdo con las condiciones y ya diste una señal o firmaste arras, se procede a la tasación de la propiedad.</p>
+          </div>
+        </div>
+        <div class="step-row">
+          <span class="step-num display">05</span>
+          <div>
+            <h3>Departamento de Riesgos</h3>
+            <p>Con la operación tasada, el expediente se lleva al departamento de Riesgos del banco, que es quien da la aprobación final.</p>
+          </div>
+        </div>
+        <div class="step-row">
+          <span class="step-num display">06</span>
+          <div>
+            <h3>Oferta vinculante y firma</h3>
+            <p>El banco emite la FEIN y la FIAE, la oferta vinculante. Eliges notario y, si compras con hipoteca, realizas el Acta de Transparencia antes de la firma de la escritura.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="why">
+    <div class="container">
+      <h2 class="display">Cómo puedo ayudarte</h2>
+      <div class="why-grid">
+        <div class="why-card">
+          <h3>Conozco el sistema desde adentro</h3>
+          <p>Más de una década trabajando en el sector inmobiliario y asesoría hipotecaria en varios países, no leyendo sobre ello.</p>
+        </div>
+        <div class="why-card">
+          <h3>Hablo tu idioma, literalmente</h3>
+          <p>Consultas en español, inglés o francés, sin perder matices en la traducción.</p>
+        </div>
+        <div class="why-card">
+          <h3>Sin letra chica</h3>
+          <p>Te explico paso a paso los procesos del banco, las condiciones que te ofrecen, y hago lo posible para mejorar la oferta que te va a llegar.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="final-cta">
+    <div class="container">
+      <h2 class="display">¿Listo para dar el siguiente paso?</h2>
+      <p>Escríbeme y hablemos de tu situación. La primera consulta es para entender tu caso, sin compromiso.</p>
+      <a href="contact.html" class="btn btn-primary">Agendar una consulta</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      Vuler Press — Asesoría Hipotecaria en España · <a href="contact.html">Contacto</a>
+    </div>
+  </footer>
+
 </body>
 </html>
