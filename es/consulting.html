@@ -17,6 +17,8 @@
     --stone: #EAE0CB;
     --line: #D8CBA8;
     --white: #FFFDF8;
+    --text-secondary: #4A4032;
+    --text-muted: #8a7c5c;
   }
   :root.dark-mode {
     --ink: #F5EFE1;
@@ -24,6 +26,14 @@
     --white: #24352A;
     --stone: #2E4033;
     --line: #3E5245;
+    --text-secondary: #C9BFA8;
+    --text-muted: #A99B7A;
+  }
+  :root.dark-mode .trust-stat .num,
+  :root.dark-mode .price,
+  :root.dark-mode .cred-card .num,
+  :root.dark-mode .hero h1 span {
+    color: #7FBF95;
   }
   .lang-selector { display: flex; gap: 0.4rem; align-items: center; }
   .lang-selector a { padding: 0.3rem 0.55rem; font-size: 0.8rem; border: 1px solid var(--line); border-radius: 3px; color: var(--ink); text-decoration: none; }
@@ -49,7 +59,7 @@
   .hero-grid { display: grid; grid-template-columns: 1.3fr 0.9fr; gap: 3.5rem; align-items: center; }
   .kicker { display: inline-block; font-size: 0.85rem; color: var(--terracotta); margin-bottom: 1rem; font-family: 'Lora', serif; font-style: italic; }
   .hero h1 { font-size: 2.8rem; color: var(--ink); margin-bottom: 1.5rem; max-width: 13ch; }
-  .hero-subtitle { font-size: 1.1rem; color: #4A4032; max-width: 48ch; margin-bottom: 2rem; }
+  .hero-subtitle { font-size: 1.1rem; color: var(--text-secondary); max-width: 48ch; margin-bottom: 2rem; }
   .cta-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
   .btn { padding: 0.9rem 1.75rem; font-family: 'Lora', serif; font-weight: 600; font-size: 0.95rem; text-decoration: none; display: inline-block; border-radius: 3px; border: 1.5px solid transparent; }
   .btn-primary { background: var(--primary); color: var(--white); }
@@ -62,23 +72,23 @@
   .trust-stat { display: flex; align-items: baseline; gap: 0.75rem; padding: 0.9rem 0; border-bottom: 1px solid var(--stone); }
   .trust-stat:last-child { border-bottom: none; }
   .trust-stat .num { font-family: 'Archivo Black', sans-serif; font-size: 2rem; color: var(--primary); line-height: 1; min-width: 3.2ch; }
-  .trust-stat .label { font-size: 0.92rem; color: #4A4032; }
+  .trust-stat .label { font-size: 0.92rem; color: var(--text-secondary); }
 
   .who-for { background: var(--white); padding: 4rem 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
   .who-for h2 { font-size: 1.9rem; margin-bottom: 2.5rem; max-width: 22ch; }
   .who-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
   .who-card { padding: 1.5rem; background: var(--paper); border: 1px solid var(--line); }
   .who-card h3 { font-family: 'Lora', serif; font-size: 1rem; margin-bottom: 0.4rem; }
-  .who-card p { font-size: 0.88rem; color: #4A4032; }
+  .who-card p { font-size: 0.88rem; color: var(--text-secondary); }
 
   .process { padding: 4.5rem 0; }
   .process h2 { font-size: 1.9rem; color: var(--ink); margin-bottom: 0.5rem; max-width: 22ch; }
-  .process-lead { color: #4A4032; max-width: 55ch; margin-bottom: 3rem; }
+  .process-lead { color: var(--text-secondary); max-width: 55ch; margin-bottom: 3rem; }
   .step-list { border-top: 1px solid var(--line); }
   .step-row { display: grid; grid-template-columns: 70px 1fr; gap: 1.5rem; padding: 1.75rem 0; border-bottom: 1px solid var(--line); }
   .step-row .step-num { font-family: 'Archivo Black', sans-serif; font-size: 1.5rem; color: var(--terracotta); }
   .step-row h3 { font-family: 'Lora', serif; font-weight: 600; font-size: 1.1rem; margin-bottom: 0.4rem; }
-  .step-row p { font-size: 0.95rem; color: #4A4032; max-width: 62ch; }
+  .step-row p { font-size: 0.95rem; color: var(--text-secondary); max-width: 62ch; }
 
   .why { background: var(--stone); padding: 4.5rem 0; border-top: 1px solid var(--line); }
   .why h2 { font-size: 1.9rem; max-width: 18ch; margin-bottom: 2.5rem; }
@@ -87,11 +97,11 @@
   .why-card:nth-child(2) { border-top-color: var(--terracotta); }
   .why-card:nth-child(3) { border-top-color: var(--ink); }
   .why-card h3 { font-family: 'Lora', serif; font-size: 1.1rem; margin-bottom: 0.5rem; }
-  .why-card p { font-size: 0.92rem; color: #4A4032; }
+  .why-card p { font-size: 0.92rem; color: var(--text-secondary); }
 
   .final-cta { padding: 4.5rem 0; text-align: center; }
   .final-cta h2 { font-size: 1.9rem; margin-bottom: 1rem; max-width: 26ch; margin-left: auto; margin-right: auto; }
-  .final-cta p { color: #4A4032; max-width: 50ch; margin: 0 auto 1.75rem; }
+  .final-cta p { color: var(--text-secondary); max-width: 50ch; margin: 0 auto 1.75rem; }
 
   footer { background: var(--ink); color: var(--paper); padding: 2.5rem 0; text-align: center; font-size: 0.85rem; }
   footer a { color: var(--paper); }

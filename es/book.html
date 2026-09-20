@@ -17,6 +17,8 @@
     --stone: #EAE0CB;
     --line: #D8CBA8;
     --white: #FFFDF8;
+    --text-secondary: #4A4032;
+    --text-muted: #8a7c5c;
   }
   :root.dark-mode {
     --ink: #F5EFE1;
@@ -24,6 +26,14 @@
     --white: #24352A;
     --stone: #2E4033;
     --line: #3E5245;
+    --text-secondary: #C9BFA8;
+    --text-muted: #A99B7A;
+  }
+  :root.dark-mode .trust-stat .num,
+  :root.dark-mode .price,
+  :root.dark-mode .cred-card .num,
+  :root.dark-mode .hero h1 span {
+    color: #7FBF95;
   }
   .lang-selector { display: flex; gap: 0.4rem; align-items: center; }
   .lang-selector a { padding: 0.3rem 0.55rem; font-size: 0.8rem; border: 1px solid var(--line); border-radius: 3px; color: var(--ink); text-decoration: none; }
@@ -50,10 +60,10 @@
   .book-cover-img { width: 100%; max-width: 340px; box-shadow: 10px 10px 0 var(--stone); border: 1px solid var(--line); }
   .kicker { display: inline-block; font-size: 0.85rem; color: var(--terracotta); margin-bottom: 1rem; font-family: 'Lora', serif; font-style: italic; }
   .book-hero h1 { font-size: 2.5rem; color: var(--ink); margin-bottom: 1rem; max-width: 14ch; }
-  .book-subtitle { font-size: 1.1rem; color: #4A4032; max-width: 46ch; margin-bottom: 1.75rem; }
+  .book-subtitle { font-size: 1.1rem; color: var(--text-secondary); max-width: 46ch; margin-bottom: 1.75rem; }
   .price-row { display: flex; align-items: baseline; gap: 1rem; margin-bottom: 1.75rem; flex-wrap: wrap; }
   .price { font-family: 'Archivo Black', sans-serif; font-size: 1.6rem; color: var(--primary); }
-  .price-note { font-size: 0.85rem; color: #8a7c5c; }
+  .price-note { font-size: 0.85rem; color: var(--text-muted); }
   .cta-buttons { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem; }
   .btn { padding: 0.9rem 1.75rem; font-family: 'Lora', serif; font-weight: 600; font-size: 0.95rem; text-decoration: none; display: inline-block; border-radius: 3px; border: 1.5px solid transparent; }
   .btn-primary { background: var(--primary); color: var(--white); }
@@ -61,7 +71,7 @@
   .btn-secondary { border-color: var(--ink); color: var(--ink); }
   .btn-secondary:hover { background: var(--ink); color: var(--white); }
   .formats { display: flex; gap: 0.75rem; flex-wrap: wrap; }
-  .format-tag { font-size: 0.8rem; padding: 0.35rem 0.75rem; border: 1px solid var(--line); border-radius: 3px; color: #4A4032; }
+  .format-tag { font-size: 0.8rem; padding: 0.35rem 0.75rem; border: 1px solid var(--line); border-radius: 3px; color: var(--text-secondary); }
 
   .what-inside { background: var(--white); padding: 4rem 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
   .what-inside h2 { font-size: 1.9rem; margin-bottom: 2.5rem; max-width: 20ch; }
@@ -72,21 +82,21 @@
   .topic-card:nth-child(5) { border-top-color: var(--terracotta); }
   .topic-card:nth-child(6) { border-top-color: var(--ink); }
   .topic-card h3 { font-family: 'Lora', serif; font-size: 1.05rem; margin-bottom: 0.5rem; }
-  .topic-card p { font-size: 0.92rem; color: #4A4032; }
+  .topic-card p { font-size: 0.92rem; color: var(--text-secondary); }
 
   .about-author { padding: 4rem 0; }
   .about-grid { display: grid; grid-template-columns: 1fr 1.6fr; gap: 3rem; align-items: center; }
   .about-author h2 { font-size: 1.9rem; margin-bottom: 1rem; }
-  .about-author p { color: #4A4032; max-width: 55ch; }
+  .about-author p { color: var(--text-secondary); max-width: 55ch; }
   .author-panel { background: var(--white); border: 1.5px solid var(--ink); padding: 2rem; position: relative; }
   .author-panel::before { content: ""; position: absolute; inset: 6px; border: 1px solid var(--line); pointer-events: none; }
   .author-name { font-family: 'Archivo Black', sans-serif; font-size: 1.1rem; margin-bottom: 0.5rem; }
   .author-role { font-size: 0.9rem; color: var(--terracotta); margin-bottom: 1rem; }
-  .author-locations { font-size: 0.85rem; color: #8a7c5c; }
+  .author-locations { font-size: 0.85rem; color: var(--text-muted); }
 
   .bridge-cta { background: var(--stone); padding: 4rem 0; border-top: 1px solid var(--line); text-align: center; }
   .bridge-cta h2 { font-size: 1.7rem; margin-bottom: 1rem; max-width: 30ch; margin-left: auto; margin-right: auto; }
-  .bridge-cta p { color: #4A4032; max-width: 46ch; margin: 0 auto 1.75rem; }
+  .bridge-cta p { color: var(--text-secondary); max-width: 46ch; margin: 0 auto 1.75rem; }
 
   footer { background: var(--ink); color: var(--paper); padding: 2.5rem 0; text-align: center; font-size: 0.85rem; }
   footer a { color: var(--paper); }
