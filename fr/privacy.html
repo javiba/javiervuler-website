@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Politique de Confidentialité — Vuler Press</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root { --ink: #1C2B22; --primary: #2D5A3D; --primary-light: #3D7A4D; --terracotta: #B8654A; --paper: #F5EFE1; --stone: #EAE0CB; --line: #D8CBA8; --white: #FFFDF8;
+    --text-secondary: #4A4032;
+    --text-muted: #8a7c5c;
+    --surface: var(--white); --whatsapp: #25D366; }
+  :root.dark-mode {
+    --ink: #F5EFE1;
+    --paper: #1C2B22;
+    --surface: #24352A;
+    --stone: #2E4033;
+    --line: #3E5245;
+    --text-secondary: #C9BFA8;
+    --text-muted: #A99B7A;
+  }
+  :root.dark-mode .trust-stat .num,
+  :root.dark-mode .price,
+  :root.dark-mode .cred-card .num,
+  :root.dark-mode .hero h1 span {
+    color: #7FBF95;
+  }
+  .lang-selector { display: flex; gap: 0.4rem; align-items: center; }
+  .lang-selector a { padding: 0.3rem 0.55rem; font-size: 0.8rem; border: 1px solid var(--line); border-radius: 3px; color: var(--ink); text-decoration: none; }
+  .lang-selector a.active { background: var(--primary); color: var(--white); border-color: var(--primary); }
+  .lang-selector a:hover:not(.active) { border-color: var(--primary); }
+  .mode-toggle { background: none; border: 1px solid var(--line); border-radius: 3px; padding: 0.3rem 0.55rem; cursor: pointer; font-size: 0.95rem; line-height: 1; color: var(--ink); }
+  .nav-right { display: flex; align-items: center; gap: 1rem; }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Lora', Georgia, serif; font-size: 17px; line-height: 1.65; color: var(--ink); background: var(--paper); }
+  .display { font-family: 'Archivo Black', 'Helvetica Neue', sans-serif; line-height: 1.1; letter-spacing: -0.01em; }
+  .container { max-width: 1180px; margin: 0 auto; padding: 0 2rem; }
+  header { padding: 1.75rem 0; border-bottom: 1px solid var(--line); }
+  nav { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-family: 'Archivo Black', sans-serif; font-size: 1.15rem; color: var(--ink); text-decoration: none; }
+  .nav-links { display: flex; gap: 2.25rem; list-style: none; }
+  .nav-links a { color: var(--ink); text-decoration: none; font-size: 0.95rem; }
+  .nav-links a.active { color: var(--primary); font-weight: 600; }
+  .nav-links a:hover { color: var(--primary); }
+  .page-hero { padding: 4rem 0 3rem; text-align: center; }
+  .page-hero h1 { font-size: 2.6rem; margin-bottom: 1rem; }
+  .page-hero p { color: var(--text-secondary); max-width: 50ch; margin: 0 auto; }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; padding-bottom: 4rem; }
+  .contact-card { background: var(--surface); border: 1.5px solid var(--ink); padding: 2.5rem; position: relative; }
+  .contact-card::before { content: ""; position: absolute; inset: 6px; border: 1px solid var(--line); pointer-events: none; }
+  .contact-card h2 { font-size: 1.4rem; margin-bottom: 0.75rem; }
+  .contact-card p { color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1.5rem; }
+  .btn { padding: 0.9rem 1.75rem; font-family: 'Lora', serif; font-weight: 600; font-size: 0.95rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.6rem; border-radius: 3px; border: 1.5px solid transparent; }
+  .btn-whatsapp { background: var(--whatsapp); color: var(--white); }
+  .btn-whatsapp:hover { opacity: 0.9; }
+  .btn-primary { background: var(--primary); color: var(--white); }
+  .btn-primary:hover { background: var(--primary-light); }
+  .form-row { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1rem; }
+  .form-row input { padding: 0.75rem 1rem; border: 1px solid var(--line); background: var(--paper); font-family: 'Lora', serif; font-size: 0.95rem; border-radius: 3px; }
+  .form-row input:focus { outline: 2px solid var(--primary); }
+  .full-width { grid-column: 1 / -1; }
+  .form-feedback { font-size: 0.88rem; margin-top: 0.75rem; display: none; }
+  .form-feedback.show { display: block; }
+  .form-feedback.ok { color: var(--primary); }
+  .form-feedback.err { color: var(--terracotta); }
+  .note-tag { font-size: 0.78rem; color: var(--text-muted); font-style: italic; margin-top: 0.75rem; }
+  footer { background: var(--ink); color: var(--paper); padding: 2.5rem 0; text-align: center; font-size: 0.85rem; }
+  footer a { color: var(--paper); }
+  #sib-form-container .sib-form-block, #sib-form-container .sib-form-block p, #sib-form-container .entry__label, #sib-form-container .entry__specification {
+    font-family: 'Lora', serif !important; color: var(--ink) !important; background: transparent !important; text-align: left !important;
+  }
+  #sib-form-container .sib-form-block:first-of-type p { font-family: 'Archivo Black', sans-serif !important; font-size: 1.3rem !important; color: var(--ink) !important; }
+  .sib-form { background: transparent !important; text-align: left !important; }
+  #sib-container { background: transparent !important; border: none !important; max-width: 100% !important; }
+  #sib-form-container .input { font-family: 'Lora', serif !important; border: 1px solid var(--line) !important; background: var(--paper) !important; border-radius: 3px !important; }
+  #sib-form-container .sib-form-block__button { font-family: 'Lora', serif !important; background-color: var(--primary) !important; border-radius: 3px !important; }
+  #sib-form-container .sib-form-block__button:hover { background-color: var(--primary-light) !important; }
+  @media (max-width: 900px) { .contact-grid { grid-template-columns: 1fr; } }
+</style>
+<style>
+  .legal { padding: 3.5rem 0 4rem; max-width: 820px; }
+  .legal h1 { font-size: 2.2rem; margin-bottom: 0.5rem; }
+  .legal .updated { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 2.5rem; }
+  .legal h2 { font-family: 'Archivo Black', sans-serif; font-size: 1.15rem; color: var(--heading, var(--ink)); margin: 2.25rem 0 0.75rem; }
+  .legal p, .legal li { color: var(--text-secondary); margin-bottom: 0.9rem; max-width: 70ch; }
+  .legal ul { padding-left: 1.25rem; }
+  .legal a { color: var(--primary); }
+  :root.dark-mode .legal a { color: #7FBF95; }
+</style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <nav>
+        <a href="index.html" class="logo">Vuler Press</a>
+        <ul class="nav-links">
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="book.html">Livre</a></li>
+          <li><a href="consulting.html">Conseil &amp; Hypothèques</a></li>
+          <li><a href="about.html">À propos</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-right">
+          <div class="lang-selector"><a href="../en/privacy.html">EN</a><a href="../es/privacy.html">ES</a><a href="../fr/privacy.html" class="active">FR</a></div>
+          <button id="dark-mode-toggle" class="mode-toggle" aria-label="Basculer le mode sombre">🌙</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <section class="container legal">
+    <h1 class="display">Politique de Confidentialité</h1>
+    <p class="updated">Dernière mise à jour : septembre 2026</p>
+
+    <h2>1. Responsable du traitement</h2>
+    <p>Javier Vulijscher (publiant sous le nom Javier Vuler), domicilié Pl. Sierra Ministra, 1, 28053 Madrid, Espagne, est le responsable du traitement des données personnelles collectées via ce site (javiervuler.com).</p>
+
+    <h2>2. Quelles données nous collectons</h2>
+    <p>Via les formulaires de ce site, nous collectons uniquement votre adresse e-mail, dans deux situations précises :</p>
+    <ul>
+      <li>Lorsque vous vous inscrivez pour recevoir la checklist gratuite.</li>
+      <li>Lorsque vous échangez un code promotionnel pour recevoir un exemplaire du livre.</li>
+    </ul>
+    <p>Nous ne collectons aucune autre donnée personnelle (nous ne demandons ni numéro de téléphone, ni adresse, ni données de paiement) via ces formulaires.</p>
+
+    <h2>3. À quoi servent vos données</h2>
+    <ul>
+      <li>Vous envoyer le contenu que vous avez demandé (la checklist ou le livre).</li>
+      <li>Si vous vous êtes inscrit à la newsletter, vous envoyer occasionnellement du contenu lié à l'achat immobilier en Espagne et au conseil hypothécaire.</li>
+    </ul>
+    <p>Nous n'utilisons vos données à aucune autre fin, et nous ne les vendons ni ne les partageons avec des tiers à des fins commerciales.</p>
+
+    <h2>4. Base légale</h2>
+    <p>Le traitement repose sur votre consentement explicite, donné en cochant la case correspondante avant l'envoi de chaque formulaire. Vous pouvez retirer votre consentement à tout moment.</p>
+
+    <h2>5. Avec qui nous partageons vos données</h2>
+    <p>Nous utilisons les prestataires suivants pour traiter vos données :</p>
+    <ul>
+      <li><strong>Brevo</strong> (Sendinblue SAS, basée en France, au sein de l'Union européenne), pour gérer l'envoi des e-mails et la liste des abonnés à la newsletter et à la checklist.</li>
+      <li><strong>Google</strong> (Google Sheets et Google Apps Script), pour gérer le système d'échange de codes du livre gratuit.</li>
+    </ul>
+    <p>Ces deux prestataires agissent en tant que sous-traitants selon leurs propres politiques de confidentialité et respectent le RGPD.</p>
+
+    <h2>6. Durée de conservation de vos données</h2>
+    <p>Nous conservons votre e-mail tant que vous restez abonné à nos communications, ou jusqu'à ce que vous demandiez sa suppression. Les données d'échange de code (e-mail et date d'utilisation) sont conservées pour empêcher la réutilisation du même code.</p>
+
+    <h2>7. Vos droits</h2>
+    <p>Vous pouvez exercer à tout moment vos droits d'accès, de rectification, d'effacement, d'opposition et de portabilité en écrivant à <a href="mailto:hola@javiervuler.com">hola@javiervuler.com</a> ou par WhatsApp au <a href="https://wa.me/javiervuler" target="_blank" rel="noopener">@javiervuler</a>. Vous pouvez également vous désabonner de la newsletter à tout moment via le lien présent dans chaque e-mail.</p>
+    <p>Si vous estimez que vos données ne sont pas traitées correctement, vous avez également le droit de déposer une réclamation auprès de l'Agence espagnole de protection des données (aepd.es).</p>
+
+    <h2>8. Sécurité</h2>
+    <p>Nous prenons des mesures de sécurité raisonnables pour protéger vos données personnelles contre toute utilisation abusive et tout accès non autorisé, en limitant qui peut y accéder et en révisant ces mesures régulièrement.</p>
+
+    <h2>9. Divulgation à des tiers</h2>
+    <p>Nous ne divulguerions vos données personnelles que si la loi, une décision de justice ou une autorité compétente nous y obligeait. Si cette activité venait à être vendue ou transférée à l'avenir, vos données pourraient être transmises aux nouveaux propriétaires, toujours sous les mêmes garanties de protection.</p>
+
+    <h2>10. Sites web tiers</h2>
+    <p>Ce site peut contenir des liens vers des sites tiers (par exemple, Amazon ou LinkedIn). Cette politique de confidentialité ne s'applique pas à ces sites ; nous vous recommandons de lire leurs propres politiques avant de les utiliser.</p>
+
+    <h2>11. Cookies</h2>
+    <p>Ce site n'utilise actuellement aucun cookie de suivi ou d'analyse qui lui soit propre.</p>
+
+    <h2>12. Modifications de cette politique</h2>
+    <p>Cette politique pourra être mise à jour à l'avenir. Tout changement pertinent sera reflété sur cette même page, avec la date de mise à jour correspondante.</p>
+  </section>
+
+  <footer>
+    <div class="container">
+      Vuler Press — Conseil Hypothécaire en Espagne · <a href="contact.html">Contact</a> · <a href="privacy.html">Confidentialité</a>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      const htmlEl = document.documentElement;
+      const toggleBtn = document.getElementById('dark-mode-toggle');
+      function applyMode(isDark) {
+        htmlEl.classList.toggle('dark-mode', isDark);
+        if (toggleBtn) toggleBtn.textContent = isDark ? '☀️' : '🌙';
+      }
+      const stored = localStorage.getItem('colorScheme');
+      applyMode(stored === 'dark');
+      if (toggleBtn) {
+        toggleBtn.addEventListener('click', function() {
+          const nowDark = !htmlEl.classList.contains('dark-mode');
+          applyMode(nowDark);
+          localStorage.setItem('colorScheme', nowDark ? 'dark' : 'light');
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
