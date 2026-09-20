@@ -8,13 +8,23 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <style>
-  :root { --ink: #1C2B22; --primary: #2D5A3D; --primary-light: #3D7A4D; --terracotta: #B8654A; --paper: #F5EFE1; --stone: #EAE0CB; --line: #D8CBA8; --white: #FFFDF8; --whatsapp: #25D366; }
+  :root { --ink: #1C2B22; --primary: #2D5A3D; --primary-light: #3D7A4D; --terracotta: #B8654A; --paper: #F5EFE1; --stone: #EAE0CB; --line: #D8CBA8; --white: #FFFDF8;
+    --text-secondary: #4A4032;
+    --text-muted: #8a7c5c; --whatsapp: #25D366; }
   :root.dark-mode {
     --ink: #F5EFE1;
     --paper: #1C2B22;
     --white: #24352A;
     --stone: #2E4033;
     --line: #3E5245;
+    --text-secondary: #C9BFA8;
+    --text-muted: #A99B7A;
+  }
+  :root.dark-mode .trust-stat .num,
+  :root.dark-mode .price,
+  :root.dark-mode .cred-card .num,
+  :root.dark-mode .hero h1 span {
+    color: #7FBF95;
   }
   .lang-selector { display: flex; gap: 0.4rem; align-items: center; }
   .lang-selector a { padding: 0.3rem 0.55rem; font-size: 0.8rem; border: 1px solid var(--line); border-radius: 3px; color: var(--ink); text-decoration: none; }
@@ -36,12 +46,12 @@
   .nav-links a:hover { color: var(--primary); }
   .page-hero { padding: 4rem 0 3rem; text-align: center; }
   .page-hero h1 { font-size: 2.6rem; margin-bottom: 1rem; }
-  .page-hero p { color: #4A4032; max-width: 50ch; margin: 0 auto; }
+  .page-hero p { color: var(--text-secondary); max-width: 50ch; margin: 0 auto; }
   .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; padding-bottom: 4rem; }
   .contact-card { background: var(--white); border: 1.5px solid var(--ink); padding: 2.5rem; position: relative; }
   .contact-card::before { content: ""; position: absolute; inset: 6px; border: 1px solid var(--line); pointer-events: none; }
   .contact-card h2 { font-size: 1.4rem; margin-bottom: 0.75rem; }
-  .contact-card p { color: #4A4032; font-size: 0.95rem; margin-bottom: 1.5rem; }
+  .contact-card p { color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1.5rem; }
   .btn { padding: 0.9rem 1.75rem; font-family: 'Lora', serif; font-weight: 600; font-size: 0.95rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.6rem; border-radius: 3px; border: 1.5px solid transparent; }
   .btn-whatsapp { background: var(--whatsapp); color: var(--white); }
   .btn-whatsapp:hover { opacity: 0.9; }
@@ -55,7 +65,7 @@
   .form-feedback.show { display: block; }
   .form-feedback.ok { color: var(--primary); }
   .form-feedback.err { color: var(--terracotta); }
-  .note-tag { font-size: 0.78rem; color: #8a7c5c; font-style: italic; margin-top: 0.75rem; }
+  .note-tag { font-size: 0.78rem; color: var(--text-muted); font-style: italic; margin-top: 0.75rem; }
   footer { background: var(--ink); color: var(--paper); padding: 2.5rem 0; text-align: center; font-size: 0.85rem; }
   footer a { color: var(--paper); }
   #sib-form-container .sib-form-block, #sib-form-container .sib-form-block p, #sib-form-container .entry__label, #sib-form-container .entry__specification {

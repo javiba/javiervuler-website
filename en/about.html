@@ -8,13 +8,23 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <style>
-  :root { --ink: #1C2B22; --primary: #2D5A3D; --primary-light: #3D7A4D; --terracotta: #B8654A; --paper: #F5EFE1; --stone: #EAE0CB; --line: #D8CBA8; --white: #FFFDF8; }
+  :root { --ink: #1C2B22; --primary: #2D5A3D; --primary-light: #3D7A4D; --terracotta: #B8654A; --paper: #F5EFE1; --stone: #EAE0CB; --line: #D8CBA8; --white: #FFFDF8;
+    --text-secondary: #4A4032;
+    --text-muted: #8a7c5c; }
   :root.dark-mode {
     --ink: #F5EFE1;
     --paper: #1C2B22;
     --white: #24352A;
     --stone: #2E4033;
     --line: #3E5245;
+    --text-secondary: #C9BFA8;
+    --text-muted: #A99B7A;
+  }
+  :root.dark-mode .trust-stat .num,
+  :root.dark-mode .price,
+  :root.dark-mode .cred-card .num,
+  :root.dark-mode .hero h1 span {
+    color: #7FBF95;
   }
   .lang-selector { display: flex; gap: 0.4rem; align-items: center; }
   .lang-selector a { padding: 0.3rem 0.55rem; font-size: 0.8rem; border: 1px solid var(--line); border-radius: 3px; color: var(--ink); text-decoration: none; }
@@ -38,11 +48,11 @@
   .hero-grid { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 3.5rem; align-items: center; }
   .kicker { display: inline-block; font-size: 0.85rem; color: var(--terracotta); margin-bottom: 1rem; font-family: 'Lora', serif; font-style: italic; }
   .hero h1 { font-size: 2.6rem; margin-bottom: 1rem; }
-  .hero-lede { font-size: 1.15rem; color: #4A4032; }
+  .hero-lede { font-size: 1.15rem; color: var(--text-secondary); }
   .portrait-frame { background: var(--white); border: 1.5px solid var(--ink); padding: 1.25rem; position: relative; text-align: center; max-width: 240px; margin: 0 auto; }
   .portrait-frame::before { content: ""; position: absolute; inset: 6px; border: 1px solid var(--line); pointer-events: none; }
   .portrait-placeholder { aspect-ratio: 4 / 5; background: var(--stone); }
-  .locations-strip { margin-top: 1rem; font-size: 0.85rem; color: #8a7c5c; }
+  .locations-strip { margin-top: 1rem; font-size: 0.85rem; color: var(--text-muted); }
   .story { padding: 3.5rem 0; background: var(--white); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
   .story-grid { display: grid; grid-template-columns: 0.9fr 1.5fr; gap: 3rem; }
   .story h2 { font-size: 1.7rem; margin-bottom: 0.5rem; position: sticky; top: 2rem; }
@@ -55,10 +65,10 @@
   .cred-card:nth-child(2) { border-top-color: var(--terracotta); }
   .cred-card:nth-child(3) { border-top-color: var(--ink); }
   .cred-card .num { font-family: 'Archivo Black', sans-serif; font-size: 1.8rem; color: var(--primary); display: block; margin-bottom: 0.5rem; }
-  .cred-card p { font-size: 0.92rem; color: #4A4032; }
+  .cred-card p { font-size: 0.92rem; color: var(--text-secondary); }
   .bridge-cta { background: var(--stone); padding: 4rem 0; border-top: 1px solid var(--line); text-align: center; }
   .bridge-cta h2 { font-size: 1.7rem; margin-bottom: 1rem; max-width: 34ch; margin-left: auto; margin-right: auto; }
-  .bridge-cta p { color: #4A4032; max-width: 50ch; margin: 0 auto 1.75rem; }
+  .bridge-cta p { color: var(--text-secondary); max-width: 50ch; margin: 0 auto 1.75rem; }
   .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
   .btn { padding: 0.9rem 1.75rem; font-family: 'Lora', serif; font-weight: 600; font-size: 0.95rem; text-decoration: none; display: inline-block; border-radius: 3px; border: 1.5px solid transparent; }
   .btn-primary { background: var(--primary); color: var(--white); }
