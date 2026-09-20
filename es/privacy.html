@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Política de Privacidad — Vuler Press</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root { --ink: #1C2B22; --primary: #2D5A3D; --primary-light: #3D7A4D; --terracotta: #B8654A; --paper: #F5EFE1; --stone: #EAE0CB; --line: #D8CBA8; --white: #FFFDF8;
+    --text-secondary: #4A4032;
+    --text-muted: #8a7c5c;
+    --surface: var(--white); --whatsapp: #25D366; }
+  :root.dark-mode {
+    --ink: #F5EFE1;
+    --paper: #1C2B22;
+    --surface: #24352A;
+    --stone: #2E4033;
+    --line: #3E5245;
+    --text-secondary: #C9BFA8;
+    --text-muted: #A99B7A;
+  }
+  :root.dark-mode .trust-stat .num,
+  :root.dark-mode .price,
+  :root.dark-mode .cred-card .num,
+  :root.dark-mode .hero h1 span {
+    color: #7FBF95;
+  }
+  .lang-selector { display: flex; gap: 0.4rem; align-items: center; }
+  .lang-selector a { padding: 0.3rem 0.55rem; font-size: 0.8rem; border: 1px solid var(--line); border-radius: 3px; color: var(--ink); text-decoration: none; }
+  .lang-selector a.active { background: var(--primary); color: var(--white); border-color: var(--primary); }
+  .lang-selector a:hover:not(.active) { border-color: var(--primary); }
+  .mode-toggle { background: none; border: 1px solid var(--line); border-radius: 3px; padding: 0.3rem 0.55rem; cursor: pointer; font-size: 0.95rem; line-height: 1; color: var(--ink); }
+  .nav-right { display: flex; align-items: center; gap: 1rem; }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Lora', Georgia, serif; font-size: 17px; line-height: 1.65; color: var(--ink); background: var(--paper); }
+  .display { font-family: 'Archivo Black', 'Helvetica Neue', sans-serif; line-height: 1.1; letter-spacing: -0.01em; }
+  .container { max-width: 1180px; margin: 0 auto; padding: 0 2rem; }
+  header { padding: 1.75rem 0; border-bottom: 1px solid var(--line); }
+  nav { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-family: 'Archivo Black', sans-serif; font-size: 1.15rem; color: var(--ink); text-decoration: none; }
+  .nav-links { display: flex; gap: 2.25rem; list-style: none; }
+  .nav-links a { color: var(--ink); text-decoration: none; font-size: 0.95rem; }
+  .nav-links a.active { color: var(--primary); font-weight: 600; }
+  .nav-links a:hover { color: var(--primary); }
+  .page-hero { padding: 4rem 0 3rem; text-align: center; }
+  .page-hero h1 { font-size: 2.6rem; margin-bottom: 1rem; }
+  .page-hero p { color: var(--text-secondary); max-width: 50ch; margin: 0 auto; }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; padding-bottom: 4rem; }
+  .contact-card { background: var(--surface); border: 1.5px solid var(--ink); padding: 2.5rem; position: relative; }
+  .contact-card::before { content: ""; position: absolute; inset: 6px; border: 1px solid var(--line); pointer-events: none; }
+  .contact-card h2 { font-size: 1.4rem; margin-bottom: 0.75rem; }
+  .contact-card p { color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1.5rem; }
+  .btn { padding: 0.9rem 1.75rem; font-family: 'Lora', serif; font-weight: 600; font-size: 0.95rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.6rem; border-radius: 3px; border: 1.5px solid transparent; }
+  .btn-whatsapp { background: var(--whatsapp); color: var(--white); }
+  .btn-whatsapp:hover { opacity: 0.9; }
+  .btn-primary { background: var(--primary); color: var(--white); }
+  .btn-primary:hover { background: var(--primary-light); }
+  .form-row { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1rem; }
+  .form-row input { padding: 0.75rem 1rem; border: 1px solid var(--line); background: var(--paper); font-family: 'Lora', serif; font-size: 0.95rem; border-radius: 3px; }
+  .form-row input:focus { outline: 2px solid var(--primary); }
+  .full-width { grid-column: 1 / -1; }
+  .form-feedback { font-size: 0.88rem; margin-top: 0.75rem; display: none; }
+  .form-feedback.show { display: block; }
+  .form-feedback.ok { color: var(--primary); }
+  .form-feedback.err { color: var(--terracotta); }
+  .note-tag { font-size: 0.78rem; color: var(--text-muted); font-style: italic; margin-top: 0.75rem; }
+  footer { background: var(--ink); color: var(--paper); padding: 2.5rem 0; text-align: center; font-size: 0.85rem; }
+  footer a { color: var(--paper); }
+  #sib-form-container .sib-form-block, #sib-form-container .sib-form-block p, #sib-form-container .entry__label, #sib-form-container .entry__specification {
+    font-family: 'Lora', serif !important; color: var(--ink) !important; background: transparent !important; text-align: left !important;
+  }
+  #sib-form-container .sib-form-block:first-of-type p { font-family: 'Archivo Black', sans-serif !important; font-size: 1.3rem !important; color: var(--ink) !important; }
+  .sib-form { background: transparent !important; text-align: left !important; }
+  #sib-container { background: transparent !important; border: none !important; max-width: 100% !important; }
+  #sib-form-container .input { font-family: 'Lora', serif !important; border: 1px solid var(--line) !important; background: var(--paper) !important; border-radius: 3px !important; }
+  #sib-form-container .sib-form-block__button { font-family: 'Lora', serif !important; background-color: var(--primary) !important; border-radius: 3px !important; }
+  #sib-form-container .sib-form-block__button:hover { background-color: var(--primary-light) !important; }
+  @media (max-width: 900px) { .contact-grid { grid-template-columns: 1fr; } }
+</style>
+<style>
+  .legal { padding: 3.5rem 0 4rem; max-width: 820px; }
+  .legal h1 { font-size: 2.2rem; margin-bottom: 0.5rem; }
+  .legal .updated { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 2.5rem; }
+  .legal h2 { font-family: 'Archivo Black', sans-serif; font-size: 1.15rem; color: var(--heading, var(--ink)); margin: 2.25rem 0 0.75rem; }
+  .legal p, .legal li { color: var(--text-secondary); margin-bottom: 0.9rem; max-width: 70ch; }
+  .legal ul { padding-left: 1.25rem; }
+  .legal a { color: var(--primary); }
+  :root.dark-mode .legal a { color: #7FBF95; }
+</style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <nav>
+        <a href="index.html" class="logo">Vuler Press</a>
+        <ul class="nav-links">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="book.html">Libro</a></li>
+          <li><a href="consulting.html">Consultoría e Hipotecas</a></li>
+          <li><a href="about.html">Sobre Mí</a></li>
+          <li><a href="contact.html">Contacto</a></li>
+        </ul>
+        <div class="nav-right">
+          <div class="lang-selector"><a href="../en/privacy.html">EN</a><a href="../es/privacy.html" class="active">ES</a><a href="../fr/privacy.html">FR</a></div>
+          <button id="dark-mode-toggle" class="mode-toggle" aria-label="Cambiar modo oscuro">🌙</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <section class="container legal">
+    <h1 class="display">Política de Privacidad</h1>
+    <p class="updated">Última actualización: septiembre de 2026</p>
+
+    <h2>1. Responsable del tratamiento</h2>
+    <p>Javier Vulijscher (publicado bajo el nombre Javier Vuler), con domicilio en Pl. Sierra Ministra, 1, 28053 Madrid, España, es el responsable del tratamiento de los datos personales recogidos a través de este sitio web (javiervuler.com).</p>
+
+    <h2>2. Qué datos recogemos</h2>
+    <p>A través de los formularios de este sitio recogemos únicamente tu dirección de email, en dos situaciones concretas:</p>
+    <ul>
+      <li>Cuando te suscribís para recibir el checklist gratuito.</li>
+      <li>Cuando canjeás un código promocional para recibir un ejemplar del libro.</li>
+    </ul>
+    <p>No recogemos ningún otro dato personal (no pedimos teléfono, dirección ni datos de pago) a través de estos formularios.</p>
+
+    <h2>3. Para qué usamos tus datos</h2>
+    <ul>
+      <li>Enviarte el contenido que solicitaste (el checklist o el libro).</li>
+      <li>Si te suscribiste al newsletter, enviarte contenido relacionado con la compra de propiedad en España y la asesoría hipotecaria, de forma ocasional.</li>
+    </ul>
+    <p>No usamos tus datos para ningún otro fin, ni los vendemos ni los compartimos con terceros con fines comerciales.</p>
+
+    <h2>4. Base legal</h2>
+    <p>El tratamiento se basa en tu consentimiento expreso, otorgado al marcar la casilla correspondiente antes de enviar cada formulario. Podés retirar tu consentimiento en cualquier momento.</p>
+
+    <h2>5. Con quién compartimos tus datos</h2>
+    <p>Usamos los siguientes proveedores para procesar tus datos:</p>
+    <ul>
+      <li><strong>Brevo</strong> (Sendinblue SAS, con sede en Francia, dentro de la Unión Europea), para gestionar el envío de emails y la lista de suscriptores del newsletter y del checklist.</li>
+      <li><strong>Google</strong> (Google Sheets y Google Apps Script), para gestionar el sistema de canje de códigos del libro gratuito.</li>
+    </ul>
+    <p>Ambos proveedores actúan como encargados del tratamiento bajo sus propias políticas de privacidad y cumplen con el RGPD.</p>
+
+    <h2>6. Cuánto tiempo conservamos tus datos</h2>
+    <p>Conservamos tu email mientras estés suscripto a nuestras comunicaciones, o hasta que solicites su eliminación. Los datos del canje de código (email y fecha de uso) se conservan para evitar el uso repetido del mismo código.</p>
+
+    <h2>7. Tus derechos</h2>
+    <p>Podés ejercer en cualquier momento tus derechos de acceso, rectificación, supresión, oposición y portabilidad, escribiendo a <a href="mailto:hola@javiervuler.com">hola@javiervuler.com</a> o por WhatsApp a <a href="https://wa.me/javiervuler" target="_blank" rel="noopener">@javiervuler</a>. También podés darte de baja del newsletter en cualquier momento desde el link que aparece en cada email.</p>
+    <p>Si considerás que tus datos no se están tratando correctamente, también tenés derecho a presentar una reclamación ante la Agencia Española de Protección de Datos (aepd.es).</p>
+
+    <h2>8. Seguridad</h2>
+    <p>Tomamos medidas de seguridad razonables para proteger tus datos personales frente al uso indebido y el acceso no autorizado, limitando quién puede acceder a ellos y revisando periódicamente estas medidas.</p>
+
+    <h2>9. Divulgación a terceros</h2>
+    <p>Solo divulgaríamos tus datos personales si nos lo exige la ley, una orden judicial, o una autoridad competente. Si en el futuro esta actividad se vendiera o transfiriera, tus datos podrían transmitirse a los nuevos responsables, siempre bajo las mismas garantías de protección.</p>
+
+    <h2>10. Webs de terceros</h2>
+    <p>Este sitio puede contener enlaces a webs de terceros (por ejemplo, Amazon o LinkedIn). Esta política de privacidad no se aplica a esas webs; te recomendamos leer sus propias políticas antes de usarlas.</p>
+
+    <h2>11. Cookies</h2>
+    <p>Este sitio no utiliza cookies de seguimiento ni de análisis propias en este momento.</p>
+
+    <h2>12. Cambios en esta política</h2>
+    <p>Esta política puede actualizarse en el futuro. Cualquier cambio relevante se reflejará en esta misma página, con la fecha de actualización correspondiente.</p>
+  </section>
+
+  <footer>
+    <div class="container">
+      Vuler Press — Asesoría Hipotecaria en España · <a href="contact.html">Contacto</a> · <a href="privacy.html">Privacidad</a>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      const htmlEl = document.documentElement;
+      const toggleBtn = document.getElementById('dark-mode-toggle');
+      function applyMode(isDark) {
+        htmlEl.classList.toggle('dark-mode', isDark);
+        if (toggleBtn) toggleBtn.textContent = isDark ? '☀️' : '🌙';
+      }
+      const stored = localStorage.getItem('colorScheme');
+      applyMode(stored === 'dark');
+      if (toggleBtn) {
+        toggleBtn.addEventListener('click', function() {
+          const nowDark = !htmlEl.classList.contains('dark-mode');
+          applyMode(nowDark);
+          localStorage.setItem('colorScheme', nowDark ? 'dark' : 'light');
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>
