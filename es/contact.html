@@ -19,12 +19,13 @@
     --white: #FFFDF8;
     --text-secondary: #4A4032;
     --text-muted: #8a7c5c;
+    --surface: var(--white);
     --whatsapp: #25D366;
   }
   :root.dark-mode {
     --ink: #F5EFE1;
     --paper: #1C2B22;
-    --white: #24352A;
+    --surface: #24352A;
     --stone: #2E4033;
     --line: #3E5245;
     --text-secondary: #C9BFA8;
@@ -61,7 +62,7 @@
   .page-hero p { color: var(--text-secondary); max-width: 50ch; margin: 0 auto; }
 
   .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; padding-bottom: 4rem; }
-  .contact-card { background: var(--white); border: 1.5px solid var(--ink); padding: 2.5rem; position: relative; }
+  .contact-card { background: var(--surface); border: 1.5px solid var(--ink); padding: 2.5rem; position: relative; }
   .contact-card::before { content: ""; position: absolute; inset: 6px; border: 1px solid var(--line); pointer-events: none; }
   .contact-card h2 { font-size: 1.4rem; margin-bottom: 0.75rem; }
   .contact-card p { color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1.5rem; }
