@@ -1,145 +1,281 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conseil & Stratégie Hypothécaire - Vuler Press</title>
-    <meta name="description" content="Conseil immobilier personnalisé et stratégie hypothécaire pour les acheteurs internationaux en Espagne.">
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-    <link rel="stylesheet" href="/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Conseil &amp; Hypothèques — Vuler Press</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root { --ink: #1C2B22; --primary: #2D5A3D; --primary-light: #3D7A4D; --terracotta: #B8654A; --paper: #F5EFE1; --stone: #EAE0CB; --line: #D8CBA8; --white: #FFFDF8;
+    --text-secondary: #4A4032;
+    --text-muted: #8a7c5c;
+    --surface: var(--white); }
+  :root.dark-mode {
+    --ink: #F5EFE1;
+    --paper: #1C2B22;
+    --surface: #24352A;
+    --stone: #2E4033;
+    --line: #3E5245;
+    --text-secondary: #C9BFA8;
+    --text-muted: #A99B7A;
+  }
+  :root.dark-mode .trust-stat .num,
+  :root.dark-mode .price,
+  :root.dark-mode .cred-card .num,
+  :root.dark-mode .hero h1 span {
+    color: #7FBF95;
+  }
+  :root.dark-mode .kicker {
+    color: #E5A085;
+    font-weight: 600;
+    font-style: normal;
+  }
+  .lang-selector { display: flex; gap: 0.4rem; align-items: center; }
+  .lang-selector a { padding: 0.3rem 0.55rem; font-size: 0.8rem; border: 1px solid var(--line); border-radius: 3px; color: var(--ink); text-decoration: none; }
+  .lang-selector a.active { background: var(--primary); color: var(--white); border-color: var(--primary); }
+  .lang-selector a:hover:not(.active) { border-color: var(--primary); }
+  .mode-toggle { background: none; border: 1px solid var(--line); border-radius: 3px; padding: 0.3rem 0.55rem; cursor: pointer; font-size: 0.95rem; line-height: 1; color: var(--ink); }
+  .nav-right { display: flex; align-items: center; gap: 1rem; }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Lora', Georgia, serif; font-size: 17px; line-height: 1.65; color: var(--ink); background: var(--paper); }
+  .display { font-family: 'Archivo Black', 'Helvetica Neue', sans-serif; line-height: 1.1; letter-spacing: -0.01em; }
+  .container { max-width: 1180px; margin: 0 auto; padding: 0 2rem; }
+  header { padding: 1.75rem 0; border-bottom: 1px solid var(--line); }
+  nav { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-family: 'Archivo Black', sans-serif; font-size: 1.15rem; color: var(--ink); text-decoration: none; }
+  .nav-links { display: flex; gap: 2.25rem; list-style: none; }
+  .nav-links a { color: var(--ink); text-decoration: none; font-size: 0.95rem; }
+  .nav-links a.active { color: var(--primary); font-weight: 600; }
+  .nav-links a:hover { color: var(--primary); }
+  .hero { padding: 5rem 0 4rem; }
+  .hero-grid { display: grid; grid-template-columns: 1.3fr 0.9fr; gap: 3.5rem; align-items: center; }
+  .kicker { display: inline-block; font-size: 0.85rem; color: var(--terracotta); margin-bottom: 1rem; font-family: 'Lora', serif; font-style: italic; }
+  .hero h1 { font-size: 2.6rem; color: var(--ink); margin-bottom: 1.5rem; max-width: 14ch; }
+  .hero-subtitle { font-size: 1.1rem; color: var(--text-secondary); max-width: 48ch; margin-bottom: 2rem; }
+  .cta-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn { padding: 0.9rem 1.75rem; font-family: 'Lora', serif; font-weight: 600; font-size: 0.95rem; text-decoration: none; display: inline-block; border-radius: 3px; border: 1.5px solid transparent; }
+  .btn-primary { background: var(--primary); color: var(--white); }
+  .btn-primary:hover { background: var(--primary-light); }
+  .btn-secondary { border-color: var(--ink); color: var(--ink); }
+  .btn-secondary:hover { background: var(--ink); color: var(--white); }
+  .trust-panel { background: var(--surface); border: 1.5px solid var(--ink); padding: 2.5rem 2rem; position: relative; }
+  .trust-panel::before { content: ""; position: absolute; inset: 6px; border: 1px solid var(--line); pointer-events: none; }
+  .trust-stat { display: flex; align-items: baseline; gap: 0.75rem; padding: 0.9rem 0; border-bottom: 1px solid var(--stone); }
+  .trust-stat:last-child { border-bottom: none; }
+  .trust-stat .num { font-family: 'Archivo Black', sans-serif; font-size: 2rem; color: var(--primary); line-height: 1; min-width: 3.2ch; }
+  .trust-stat .label { font-size: 0.92rem; color: var(--text-secondary); }
+  .who-for { background: var(--surface); padding: 4rem 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .who-for h2 { font-size: 1.9rem; margin-bottom: 2.5rem; max-width: 22ch; }
+  .who-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+  .who-card { padding: 1.5rem; background: var(--paper); border: 1px solid var(--line); }
+  .who-card h3 { font-family: 'Lora', serif; font-size: 1rem; margin-bottom: 0.4rem; }
+  .who-card p { font-size: 0.88rem; color: var(--text-secondary); }
+  .process { padding: 4.5rem 0; }
+  .process h2 { font-size: 1.9rem; color: var(--ink); margin-bottom: 0.5rem; max-width: 22ch; }
+  .process-lead { color: var(--text-secondary); max-width: 55ch; margin-bottom: 3rem; }
+  .step-list { border-top: 1px solid var(--line); }
+  .step-row { display: grid; grid-template-columns: 70px 1fr; gap: 1.5rem; padding: 1.75rem 0; border-bottom: 1px solid var(--line); }
+  .step-row .step-num { font-family: 'Archivo Black', sans-serif; font-size: 1.5rem; color: var(--terracotta); }
+  .step-row h3 { font-family: 'Lora', serif; font-weight: 600; font-size: 1.1rem; margin-bottom: 0.4rem; }
+  .step-row p { font-size: 0.95rem; color: var(--text-secondary); max-width: 62ch; }
+  .why { background: var(--stone); padding: 4.5rem 0; border-top: 1px solid var(--line); }
+  .why h2 { font-size: 1.9rem; max-width: 18ch; margin-bottom: 2.5rem; }
+  .why-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2rem; }
+  .why-card { background: var(--surface); padding: 1.5rem; border-top: 3px solid var(--primary); }
+  .why-card:nth-child(2) { border-top-color: var(--terracotta); }
+  .why-card:nth-child(3) { border-top-color: var(--ink); }
+  .why-card h3 { font-family: 'Lora', serif; font-size: 1.1rem; margin-bottom: 0.5rem; }
+  .why-card p { font-size: 0.92rem; color: var(--text-secondary); }
+  .final-cta { padding: 4.5rem 0; text-align: center; }
+  .final-cta h2 { font-size: 1.9rem; margin-bottom: 1rem; max-width: 26ch; margin-left: auto; margin-right: auto; }
+  .final-cta p { color: var(--text-secondary); max-width: 50ch; margin: 0 auto 1.75rem; }
+  footer { background: var(--ink); color: var(--paper); padding: 2.5rem 0; text-align: center; font-size: 0.85rem; }
+  footer a { color: var(--paper); }
+  @media (max-width: 900px) {
+    .hero-grid { grid-template-columns: 1fr; }
+    .who-grid { grid-template-columns: 1fr 1fr; }
+    .why-grid { grid-template-columns: 1fr; }
+  }
+</style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <nav>
-                <div class="logo">Vuler Press</div>
-                <ul class="nav-links">
-                    <li><a href="/fr/">Accueil</a></li>
-                    <li><a href="/fr/book.html">Livre</a></li>
-                    <li><a href="/fr/consulting.html">Conseil</a></li>
-                    <li><a href="/fr/about.html">À propos</a></li>
-                    <li><a href="/fr/contact.html">Contact</a></li>
-                </ul>
-                <div class="nav-controls">
-                    <div class="lang-selector">
-                        <a href="/en/consulting.html">EN</a>
-                        <a href="/es/consulting.html">ES</a>
-                        <a href="/fr/consulting.html" class="active">FR</a>
-                    </div>
-                    <button class="dark-mode-toggle" id="dark-mode-toggle">🌙</button>
-                </div>
-            </nav>
+  <header>
+    <div class="container">
+      <nav>
+        <a href="index.html" class="logo">Vuler Press</a>
+        <ul class="nav-links">
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="book.html">Livre</a></li>
+          <li><a href="consulting.html" class="active">Conseil &amp; Hypothèques</a></li>
+          <li><a href="about.html">À propos</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-right">
+          <div class="lang-selector"><a href="../en/consulting.html">EN</a><a href="../es/consulting.html">ES</a><a href="../fr/consulting.html" class="active">FR</a></div>
+          <button id="dark-mode-toggle" class="mode-toggle" aria-label="Basculer le mode sombre">🌙</button>
         </div>
-    </header>
+      </nav>
+    </div>
+  </header>
 
-    <main>
-        <section class="hero">
-            <div class="container">
-                <h1>Conseil & Stratégie Hypothécaire</h1>
-                <p class="hero-subtitle">De la recherche à la clôture. Votre conseiller à chaque étape.</p>
-            </div>
-        </section>
-
-        <section class="section">
-            <div class="container">
-                <h2>Pour Qui Est-Ce?</h2>
-                <p>Que vous financiez ou achetiez comptant, je travaille en tant que votre conseiller immobilier personnalisé. Pour les achats financés, je me spécialise dans la stratégie hypothécaire et la sélection bancaire. Pour les acheteurs comptant, je me concentre sur l'évaluation des propriétés, la diligence raisonnable et l'orientation du marché pour s'assurer que vous faites le bon choix.</p>
-            </div>
-        </section>
-
-        <section class="section">
-            <div class="container">
-                <h2>Ce Que Je Propose</h2>
-                
-                <div class="cards-grid">
-                    <div class="card">
-                        <h3>Conseil Immobilier Personnalisé</h3>
-                        <p>Trouvez, évaluez et négociez des propriétés alignées avec vos objectifs. Naviguez le marché avec clarté sur les prix, le statut légal et le potentiel d'investissement.</p>
-                    </div>
-                    <div class="card">
-                        <h3>Stratégie Hypothécaire</h3>
-                        <p>Sélection bancaire, optimisation de l'approbation et négociation des taux. Maximisez votre pouvoir d'achat. Comprenez exactement ce que les banques voient et comment positionner votre candidature.</p>
-                    </div>
-                    <div class="card">
-                        <h3>Évaluation de Propriété</h3>
-                        <p>Conformité légale, évaluation structurelle, positionnement marché et diligence raisonnable. Protégez-vous avant de vous engager.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <div class="container">
-                <h2>Le Processus</h2>
-                <p>Chaque achat est différent. Voici comment nous travaillons généralement:</p>
-                
-                <div style="max-width: 700px; margin: 2rem auto;">
-                    <div style="background: var(--bg-surface); padding: 1.5rem; margin-bottom: 1.5rem; border-radius: 8px; border-left: 4px solid var(--primary);">
-                        <h4 style="margin-top: 0;">1. Consultation Initiale</h4>
-                        <p>Nous discutons de votre situation: budget, préférences de localisation, délai, et ce qui compte le plus pour vous. Sans pression. Juste de la clarté.</p>
-                    </div>
-                    
-                    <div style="background: var(--bg-surface); padding: 1.5rem; margin-bottom: 1.5rem; border-radius: 8px; border-left: 4px solid var(--primary);">
-                        <h4 style="margin-top: 0;">2. Analyse de Marché et Banques</h4>
-                        <p>J'évalue le marché, examine vos options hypothécaires et identifie les banques qui correspondent à votre profil.</p>
-                    </div>
-                    
-                    <div style="background: var(--bg-surface); padding: 1.5rem; margin-bottom: 1.5rem; border-radius: 8px; border-left: 4px solid var(--primary);">
-                        <h4 style="margin-top: 0;">3. Recherche & Évaluation de Propriété</h4>
-                        <p>Nous trouvons des propriétés qui correspondent à vos critères, évaluons chacune pour les problèmes légaux et structurels, et évaluons le positionnement marché.</p>
-                    </div>
-                    
-                    <div style="background: var(--bg-surface); padding: 1.5rem; margin-bottom: 1.5rem; border-radius: 8px; border-left: 4px solid var(--primary);">
-                        <h4 style="margin-top: 0;">4. Négociation & Candidature</h4>
-                        <p>Je vous aide à structurer votre offre et vous guide dans votre candidature hypothécaire pour maximiser les chances d'approbation.</p>
-                    </div>
-                    
-                    <div style="background: var(--bg-surface); padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--primary);">
-                        <h4 style="margin-top: 0;">5. Clôture & Au-Delà</h4>
-                        <p>Examen juridique, inspections finales et guidance à travers la clôture. Vous savez exactement à quoi vous attendre à chaque étape.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <div class="container">
-                <h2>Prêt à Parler?</h2>
-                <p>Programmez une consultation pour discuter de votre situation. Nous clarifierons vos options et vous comprendrez exactement ce qui vient ensuite.</p>
-                <div style="text-align: center; margin-top: 2rem;">
-                    <a href="/fr/contact.html" class="btn btn-primary" style="display: inline-block; padding: 0.75rem 2rem;">Programmer Consultation</a>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Contact</h4>
-                    <a href="mailto:javier@javiervuler.com">📧 javier@javiervuler.com</a>
-                    <a href="https://wa.me/javiervuler">📱 WhatsApp @javiervuler</a>
-                    <a href="tel:+34625410738">📞 +34 625 410 738</a>
-                </div>
-                <div class="footer-section">
-                    <h4>Vuler Press</h4>
-                    <a href="/fr/book.html">Le Livre</a>
-                    <a href="/fr/consulting.html">Conseil</a>
-                    <a href="/fr/about.html">À propos</a>
-                </div>
-                <div class="footer-section">
-                    <h4>Legal</h4>
-                    <a href="/fr/contact.html">Contact</a>
-                    <a href="/fr/privacy.html">Politique de Confidentialité</a>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Vuler Press. Tous droits réservés. | www.javiervuler.com</p>
-            </div>
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="kicker">Conseil hypothécaire personnalisé</span>
+        <h1 class="display">Achetez votre bien en Espagne sans surprises</h1>
+        <p class="hero-subtitle">Je vous accompagne tout au long du processus de financement, du premier calcul jusqu'à la signature chez le notaire. Spécialisé dans les acheteurs internationaux, expatriés et non-résidents.</p>
+        <div class="cta-buttons">
+          <a href="contact.html" class="btn btn-primary">Réserver une consultation</a>
+          <a href="book.html" class="btn btn-secondary">Voir le livre</a>
         </div>
-    </footer>
+      </div>
+      <div class="trust-panel">
+        <div class="trust-stat">
+          <span class="num">10+</span>
+          <span class="label">ans dans l'immobilier et le conseil hypothécaire, dans plusieurs pays</span>
+        </div>
+        <div class="trust-stat">
+          <span class="num">3</span>
+          <span class="label">langues de travail : espagnol, anglais et français</span>
+        </div>
+        <div class="trust-stat">
+          <span class="num">1ère</span>
+          <span class="label">consultation pour comprendre votre situation, sans engagement</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <script src="/main.js"></script>
+  <section class="who-for">
+    <div class="container">
+      <h2 class="display">À qui s'adresse ce conseil</h2>
+      <div class="who-grid">
+        <div class="who-card">
+          <h3>Acheteurs non-résidents</h3>
+          <p>Vous ne vivez pas en Espagne mais souhaitez y acheter.</p>
+        </div>
+        <div class="who-card">
+          <h3>Expatriés</h3>
+          <p>Vous vivez déjà en Espagne et avez besoin d'un accompagnement local.</p>
+        </div>
+        <div class="who-card">
+          <h3>Revenus en plusieurs devises</h3>
+          <p>Votre situation financière traverse des frontières et des devises.</p>
+        </div>
+        <div class="who-card">
+          <h3>Résidents en quête de clarté</h3>
+          <p>Vous vivez en Espagne et voulez que le processus vous soit bien expliqué.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="process">
+    <div class="container">
+      <h2 class="display">Le processus complet</h2>
+      <p class="process-lead">Voici le vrai chemin, étape par étape, exactement comme je l'explique à chaque client avant de commencer.</p>
+      <div class="step-list">
+        <div class="step-row">
+          <span class="step-num display">01</span>
+          <div>
+            <h3>Point de départ</h3>
+            <p>Vous avez déjà un bien en vue, ou vous voulez savoir d'emblée combien la banque pourrait vous prêter.</p>
+          </div>
+        </div>
+        <div class="step-row">
+          <span class="step-num display">02</span>
+          <div>
+            <h3>Examen de votre profil</h3>
+            <p>J'examine vos revenus, votre parcours professionnel, votre type d'emploi, votre situation familiale et vos déclarations fiscales pour déterminer votre capacité d'emprunt.</p>
+          </div>
+        </div>
+        <div class="step-row">
+          <span class="step-num display">03</span>
+          <div>
+            <h3>Choix des banques</h3>
+            <p>Je choisis les banques qui correspondent le mieux à votre profil et offrent les meilleures conditions. Leurs directeurs commerciaux nous donnent un premier avis sur la faisabilité et les conditions.</p>
+          </div>
+        </div>
+        <div class="step-row">
+          <span class="step-num display">04</span>
+          <div>
+            <h3>Estimation</h3>
+            <p>Une fois que vous acceptez les conditions et avez signé les arras, l'estimation du bien est réalisée.</p>
+          </div>
+        </div>
+        <div class="step-row">
+          <span class="step-num display">05</span>
+          <div>
+            <h3>Service des Risques</h3>
+            <p>Une fois l'estimation faite, le dossier passe au service des Risques de la banque, qui donne l'approbation finale.</p>
+          </div>
+        </div>
+        <div class="step-row">
+          <span class="step-num display">06</span>
+          <div>
+            <h3>Offre contraignante et signature</h3>
+            <p>La banque émet la FEIN et la FiAE, l'offre contraignante. Vous choisissez un notaire et, si vous achetez avec un prêt hypothécaire, vous accomplissez la procédure de transparence notariale préalable avant de signer l'acte.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="why">
+    <div class="container">
+      <h2 class="display">Comment je peux vous aider</h2>
+      <div class="why-grid">
+        <div class="why-card">
+          <h3>Je connais le système de l'intérieur</h3>
+          <p>Plus d'une décennie de travail dans l'immobilier et le conseil hypothécaire dans plusieurs pays, pas en le lisant.</p>
+        </div>
+        <div class="why-card">
+          <h3>Je parle votre langue, littéralement</h3>
+          <p>Consultations en espagnol, anglais ou français, sans perdre les nuances dans la traduction.</p>
+        </div>
+        <div class="why-card">
+          <h3>Sans petites lignes cachées</h3>
+          <p>Je vous explique pas à pas les processus de la banque, les conditions qu'on vous propose, et je fais tout mon possible pour améliorer l'offre que vous recevrez.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="final-cta">
+    <div class="container">
+      <h2 class="display">Prêt pour la prochaine étape&nbsp;?</h2>
+      <p>Écrivez-moi et parlons de votre situation. La première consultation sert à comprendre votre cas, sans engagement.</p>
+      <a href="contact.html" class="btn btn-primary">Réserver une consultation</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      Vuler Press — Conseil Hypothécaire en Espagne · <a href="contact.html">Contact</a>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      const htmlEl = document.documentElement;
+      const toggleBtn = document.getElementById('dark-mode-toggle');
+      function applyMode(isDark) {
+        htmlEl.classList.toggle('dark-mode', isDark);
+        if (toggleBtn) toggleBtn.textContent = isDark ? '☀️' : '🌙';
+      }
+      const stored = localStorage.getItem('colorScheme');
+      applyMode(stored === 'dark');
+      if (toggleBtn) {
+        toggleBtn.addEventListener('click', function() {
+          const nowDark = !htmlEl.classList.contains('dark-mode');
+          applyMode(nowDark);
+          localStorage.setItem('colorScheme', nowDark ? 'dark' : 'light');
+        });
+      }
+    })();
+  </script>
 </body>
 </html>
