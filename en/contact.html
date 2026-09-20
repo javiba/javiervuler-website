@@ -66,6 +66,10 @@
   .form-feedback.show { display: block; }
   .form-feedback.ok { color: var(--primary); }
   .form-feedback.err { color: var(--terracotta); }
+  .consent-label { display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem; cursor: pointer; }
+  .consent-label input { margin-top: 0.2rem; }
+  .consent-label a { color: var(--primary); }
+  :root.dark-mode .consent-label a { color: #7FBF95; }
   .note-tag { font-size: 0.78rem; color: var(--text-muted); font-style: italic; margin-top: 0.75rem; }
   footer { background: var(--ink); color: var(--paper); padding: 2.5rem 0; text-align: center; font-size: 0.85rem; }
   footer a { color: var(--paper); }
@@ -199,6 +203,7 @@
             <input type="email" id="canje-email" placeholder="Your email" required style="flex: 1; min-width: 200px;">
             <input type="text" id="canje-codigo" placeholder="Your code" required style="flex: 1; min-width: 150px;">
           </div>
+          <label class="consent-label"><input type="checkbox" id="canje-consent" required> I have read and accept the <a href="privacy.html">Privacy Policy</a>.</label>
           <button type="submit" id="canje-btn" class="btn btn-primary">Redeem code</button>
           <p id="canje-feedback" class="form-feedback"></p>
         </form>
@@ -240,7 +245,7 @@
 
   <footer>
     <div class="container">
-      Vuler Press — Mortgage Advisory in Spain · Contact
+      Vuler Press — Mortgage Advisory in Spain · Contact · <a href="privacy.html">Privacy</a>
     </div>
   </footer>
 
