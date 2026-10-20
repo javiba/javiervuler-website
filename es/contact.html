@@ -3,65 +3,180 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contacto | Javier Vuler</title>
+<title>Contacto | Vuler Press</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <style>
-  body { font-family: system-ui, sans-serif; max-width: 520px; margin: 40px auto; padding: 0 20px; line-height: 1.5; }
-  label { display: block; margin-top: 16px; font-weight: 600; }
-  input[type="text"], input[type="email"] { width: 100%; padding: 10px; margin-top: 6px; box-sizing: border-box; font-size: 16px; }
-  button { margin-top: 20px; padding: 12px 24px; font-size: 16px; cursor: pointer; }
-  #mensaje { margin-top: 20px; font-weight: 600; }
+  :root {
+    --ink: #1C2B22;
+    --primary: #2D5A3D;
+    --primary-light: #3D7A4D;
+    --terracotta: #B8654A;
+    --paper: #F5EFE1;
+    --stone: #EAE0CB;
+    --line: #D8CBA8;
+    --white: #FFFDF8;
+    --text-secondary: #4A4032;
+    --text-muted: #8a7c5c;
+    --surface: var(--white);
+  }
+  :root.dark-mode {
+    --ink: #F5EFE1;
+    --paper: #1C2B22;
+    --surface: #24352A;
+    --stone: #2E4033;
+    --line: #3E5245;
+    --text-secondary: #C9BFA8;
+    --text-muted: #A99B7A;
+  }
+  .lang-selector { display: flex; gap: 0.4rem; align-items: center; }
+  .lang-selector a { padding: 0.3rem 0.55rem; font-size: 0.8rem; border: 1px solid var(--line); border-radius: 3px; color: var(--ink); text-decoration: none; }
+  .lang-selector a.active { background: var(--primary); color: var(--white); border-color: var(--primary); }
+  .lang-selector a:hover:not(.active) { border-color: var(--primary); }
+  .mode-toggle { background: none; border: 1px solid var(--line); border-radius: 3px; padding: 0.3rem 0.55rem; cursor: pointer; font-size: 0.95rem; line-height: 1; color: var(--ink); }
+  .nav-right { display: flex; align-items: center; gap: 1rem; }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Lora', Georgia, serif; font-size: 17px; line-height: 1.65; color: var(--ink); background: var(--paper); }
+  .display { font-family: 'Archivo Black', 'Helvetica Neue', sans-serif; line-height: 1.1; letter-spacing: -0.01em; }
+  .container { max-width: 1180px; margin: 0 auto; padding: 0 2rem; }
+
+  header { padding: 1.75rem 0; border-bottom: 1px solid var(--line); }
+  nav { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-family: 'Archivo Black', sans-serif; font-size: 1.15rem; color: var(--ink); text-decoration: none; }
+  .nav-links { display: flex; gap: 2.25rem; list-style: none; }
+  .nav-links a { color: var(--ink); text-decoration: none; font-size: 0.95rem; }
+  .nav-links a.active { color: var(--primary); font-weight: 600; }
+  .nav-links a:hover { color: var(--primary); }
+
+  .contact-section { padding: 4.5rem 0; }
+  .contact-section h1 { font-size: 2.4rem; color: var(--ink); margin-bottom: 1rem; max-width: 18ch; }
+  .contact-lead { color: var(--text-secondary); max-width: 52ch; margin-bottom: 2.5rem; font-size: 1.05rem; }
+  .contact-card { background: var(--surface); border: 1.5px solid var(--ink); padding: 2.5rem 2rem; max-width: 560px; }
+  .contact-card label { display: block; margin-top: 1.25rem; font-family: 'Lora', serif; font-weight: 600; color: var(--ink); }
+  .contact-card input[type="text"], .contact-card input[type="email"] { width: 100%; padding: 0.75rem; margin-top: 0.4rem; font-family: 'Lora', serif; font-size: 1rem; background: var(--paper); color: var(--ink); border: 1px solid var(--line); border-radius: 3px; }
+  .contact-card .g-recaptcha { margin-top: 1.5rem; }
+  .btn { padding: 0.9rem 1.75rem; font-family: 'Lora', serif; font-weight: 600; font-size: 0.95rem; text-decoration: none; display: inline-block; border-radius: 3px; border: 1.5px solid transparent; cursor: pointer; }
+  .btn-primary { background: var(--primary); color: var(--white); margin-top: 1.5rem; }
+  .btn-primary:hover { background: var(--primary-light); }
+  .btn-primary:disabled { opacity: 0.6; cursor: default; }
+  #mensaje { margin-top: 1.25rem; font-weight: 600; color: var(--primary); min-height: 1.4em; }
+
+  footer { background: var(--ink); color: var(--paper); padding: 2.5rem 0; text-align: center; font-size: 0.85rem; }
+  footer a { color: var(--paper); }
+
+  @media (max-width: 760px) {
+    .container { padding-left: 1.25rem; padding-right: 1.25rem; }
+    nav { flex-wrap: wrap; gap: 0.85rem 1rem; }
+    .logo { order: 1; }
+    .nav-right { order: 2; margin-left: auto; gap: 0.6rem; }
+    .nav-links { order: 3; width: 100%; flex-wrap: wrap; gap: 0.5rem 1.25rem; }
+    .nav-links a { font-size: 0.9rem; }
+  }
+  @media (max-width: 520px) {
+    .contact-card { padding: 1.75rem 1.25rem; }
+  }
 </style>
 </head>
 <body>
 
-<h1>Pedí tu checklist del comprador</h1>
-<p>Dejanos tu nombre y tu email y te enviamos el checklist en PDF.</p>
+  <header>
+    <div class="container">
+      <nav>
+        <a href="index.html" class="logo">Vuler Press</a>
+        <ul class="nav-links">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="book.html">Libro</a></li>
+          <li><a href="consulting.html">Consultoría e Hipotecas</a></li>
+          <li><a href="about.html">Sobre Mí</a></li>
+          <li><a href="contact.html" class="active">Contacto</a></li>
+        </ul>
+        <div class="nav-right">
+          <div class="lang-selector"><a href="../en/contact.html">EN</a><a href="../es/contact.html" class="active">ES</a><a href="../fr/contact.html">FR</a></div>
+          <button id="dark-mode-toggle" class="mode-toggle" aria-label="Toggle dark mode">🌙</button>
+        </div>
+      </nav>
+    </div>
+  </header>
 
-<form id="formulario">
-  <label for="nombre">Nombre</label>
-  <input type="text" id="nombre" name="nombre" required>
+  <section class="contact-section">
+    <div class="container">
+      <span class="kicker" style="display:inline-block; font-size:0.85rem; color:var(--terracotta); margin-bottom:1rem; font-style:italic;">Contacto</span>
+      <h1 class="display">Pedí tu checklist del comprador</h1>
+      <p class="contact-lead">Dejanos tu nombre y tu email y te enviamos el checklist en PDF, para que sepas qué mirar antes de firmar.</p>
 
-  <label for="email">Email</label>
-  <input type="email" id="email" name="email" required>
+      <div class="contact-card">
+        <form id="formulario">
+          <label for="nombre">Nombre</label>
+          <input type="text" id="nombre" name="nombre" required>
 
-  <div class="g-recaptcha" data-sitekey="6LcodPYtAAAAAP080zI8haa_fzpWHXH9k4XeznKG" style="margin-top:20px"></div>
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
 
-  <button type="submit">Quiero el checklist</button>
-</form>
+          <div class="g-recaptcha" data-sitekey="6LcodPYtAAAAAP080zI8haa_fzpWHXH9k4XeznKG"></div>
 
-<p id="mensaje"></p>
+          <button type="submit" class="btn btn-primary">Quiero el checklist</button>
+        </form>
+        <p id="mensaje"></p>
+      </div>
+    </div>
+  </section>
 
-<script>
-const URL_SCRIPT = 'https://script.google.com/macros/s/AKfycby8qy4JpMVNTnA7aPmb9ikeUTJK5EZVVXy469ZfwAt3JdGvzwR4hk8msCNo019kaK8-uQ/exec';
+  <footer>
+    <div class="container">
+      Vuler Press — Asesoría Hipotecaria en España · <a href="contact.html">Contacto</a> · <a href="privacy.html">Privacidad</a>
+    </div>
+  </footer>
 
-document.getElementById('formulario').addEventListener('submit', function (e) {
-  e.preventDefault();
-  const form = e.target;
-  const mensaje = document.getElementById('mensaje');
+  <script>
+    (function() {
+      const htmlEl = document.documentElement;
+      const toggleBtn = document.getElementById('dark-mode-toggle');
+      function applyMode(isDark) {
+        htmlEl.classList.toggle('dark-mode', isDark);
+        if (toggleBtn) toggleBtn.textContent = isDark ? '☀️' : '🌙';
+      }
+      applyMode(localStorage.getItem('colorScheme') === 'dark');
+      if (toggleBtn) {
+        toggleBtn.addEventListener('click', function() {
+          const nowDark = !htmlEl.classList.contains('dark-mode');
+          applyMode(nowDark);
+          localStorage.setItem('colorScheme', nowDark ? 'dark' : 'light');
+        });
+      }
+    })();
+  </script>
 
-  if (grecaptcha.getResponse() === '') {
-    mensaje.textContent = 'Primero marcá la casilla "No soy un robot".';
-    return;
-  }
+  <script>
+    const URL_SCRIPT = 'https://script.google.com/macros/s/AKfycby8qy4JpMVNTnA7aPmb9ikeUTJK5EZVVXy469ZfwAt3JdGvzwR4hk8msCNo019kaK8-uQ/exec';
 
-  mensaje.textContent = 'Enviando...';
+    document.getElementById('formulario').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const form = e.target;
+      const mensaje = document.getElementById('mensaje');
 
-  const datos = new URLSearchParams(new FormData(form));
+      if (grecaptcha.getResponse() === '') {
+        mensaje.textContent = 'Primero marcá la casilla "No soy un robot".';
+        return;
+      }
 
-  fetch(URL_SCRIPT, {
-    method: 'POST',
-    mode: 'no-cors',
-    body: datos
-  }).then(function () {
-    mensaje.textContent = '¡Listo! Revisá tu correo, te va a llegar el checklist.';
-    form.reset();
-    grecaptcha.reset();
-  }).catch(function () {
-    mensaje.textContent = 'Hubo un problema al enviar. Probá de nuevo en un rato.';
-  });
-});
-</script>
+      mensaje.textContent = 'Enviando...';
 
+      fetch(URL_SCRIPT, {
+        method: 'POST',
+        mode: 'no-cors',
+        body: new URLSearchParams(new FormData(form))
+      }).then(function () {
+        mensaje.textContent = '¡Listo! Revisá tu correo, te va a llegar el checklist.';
+        form.reset();
+        grecaptcha.reset();
+      }).catch(function () {
+        mensaje.textContent = 'Hubo un problema al enviar. Probá de nuevo en un rato.';
+      });
+    });
+  </script>
 </body>
 </html>
