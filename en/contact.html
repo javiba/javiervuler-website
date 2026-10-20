@@ -3,15 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact — Vuler Press</title>
+<title>Contact | Vuler Press</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <style>
-  :root { --ink: #1C2B22; --primary: #2D5A3D; --primary-light: #3D7A4D; --terracotta: #B8654A; --paper: #F5EFE1; --stone: #EAE0CB; --line: #D8CBA8; --white: #FFFDF8;
+  :root {
+    --ink: #1C2B22;
+    --primary: #2D5A3D;
+    --primary-light: #3D7A4D;
+    --terracotta: #B8654A;
+    --paper: #F5EFE1;
+    --stone: #EAE0CB;
+    --line: #D8CBA8;
+    --white: #FFFDF8;
     --text-secondary: #4A4032;
     --text-muted: #8a7c5c;
-    --surface: var(--white); --whatsapp: #25D366; }
+    --surface: var(--white);
+  }
   :root.dark-mode {
     --ink: #F5EFE1;
     --paper: #1C2B22;
@@ -21,12 +31,6 @@
     --text-secondary: #C9BFA8;
     --text-muted: #A99B7A;
   }
-  :root.dark-mode .trust-stat .num,
-  :root.dark-mode .price,
-  :root.dark-mode .cred-card .num,
-  :root.dark-mode .hero h1 span {
-    color: #7FBF95;
-  }
   .lang-selector { display: flex; gap: 0.4rem; align-items: center; }
   .lang-selector a { padding: 0.3rem 0.55rem; font-size: 0.8rem; border: 1px solid var(--line); border-radius: 3px; color: var(--ink); text-decoration: none; }
   .lang-selector a.active { background: var(--primary); color: var(--white); border-color: var(--primary); }
@@ -35,9 +39,11 @@
   .nav-right { display: flex; align-items: center; gap: 1rem; }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
   body { font-family: 'Lora', Georgia, serif; font-size: 17px; line-height: 1.65; color: var(--ink); background: var(--paper); }
   .display { font-family: 'Archivo Black', 'Helvetica Neue', sans-serif; line-height: 1.1; letter-spacing: -0.01em; }
   .container { max-width: 1180px; margin: 0 auto; padding: 0 2rem; }
+
   header { padding: 1.75rem 0; border-bottom: 1px solid var(--line); }
   nav { display: flex; justify-content: space-between; align-items: center; }
   .logo { font-family: 'Archivo Black', sans-serif; font-size: 1.15rem; color: var(--ink); text-decoration: none; }
@@ -45,46 +51,23 @@
   .nav-links a { color: var(--ink); text-decoration: none; font-size: 0.95rem; }
   .nav-links a.active { color: var(--primary); font-weight: 600; }
   .nav-links a:hover { color: var(--primary); }
-  .page-hero { padding: 4rem 0 3rem; text-align: center; }
-  .page-hero h1 { font-size: 2.6rem; margin-bottom: 1rem; }
-  .page-hero p { color: var(--text-secondary); max-width: 50ch; margin: 0 auto; }
-  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; padding-bottom: 4rem; }
-  .contact-card { background: var(--surface); border: 1.5px solid var(--ink); padding: 2.5rem; position: relative; }
-  .contact-card::before { content: ""; position: absolute; inset: 6px; border: 1px solid var(--line); pointer-events: none; }
-  .contact-card h2 { font-size: 1.4rem; margin-bottom: 0.75rem; }
-  .contact-card p { color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1.5rem; }
-  .btn { padding: 0.9rem 1.75rem; font-family: 'Lora', serif; font-weight: 600; font-size: 0.95rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.6rem; border-radius: 3px; border: 1.5px solid transparent; }
-  .btn-whatsapp { background: var(--whatsapp); color: var(--white); }
-  .btn-whatsapp:hover { opacity: 0.9; }
-  .btn-primary { background: var(--primary); color: var(--white); }
+
+  .contact-section { padding: 4.5rem 0; }
+  .contact-section h1 { font-size: 2.4rem; color: var(--ink); margin-bottom: 1rem; max-width: 18ch; }
+  .contact-lead { color: var(--text-secondary); max-width: 52ch; margin-bottom: 2.5rem; font-size: 1.05rem; }
+  .contact-card { background: var(--surface); border: 1.5px solid var(--ink); padding: 2.5rem 2rem; max-width: 560px; }
+  .contact-card label { display: block; margin-top: 1.25rem; font-family: 'Lora', serif; font-weight: 600; color: var(--ink); }
+  .contact-card input[type="text"], .contact-card input[type="email"] { width: 100%; padding: 0.75rem; margin-top: 0.4rem; font-family: 'Lora', serif; font-size: 1rem; background: var(--paper); color: var(--ink); border: 1px solid var(--line); border-radius: 3px; }
+  .contact-card .g-recaptcha { margin-top: 1.5rem; }
+  .btn { padding: 0.9rem 1.75rem; font-family: 'Lora', serif; font-weight: 600; font-size: 0.95rem; text-decoration: none; display: inline-block; border-radius: 3px; border: 1.5px solid transparent; cursor: pointer; }
+  .btn-primary { background: var(--primary); color: var(--white); margin-top: 1.5rem; }
   .btn-primary:hover { background: var(--primary-light); }
-  .form-row { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1rem; }
-  .form-row input { padding: 0.75rem 1rem; border: 1px solid var(--line); background: var(--paper); font-family: 'Lora', serif; font-size: 0.95rem; border-radius: 3px; }
-  .form-row input:focus { outline: 2px solid var(--primary); }
-  .full-width { grid-column: 1 / -1; }
-  .form-feedback { font-size: 0.88rem; margin-top: 0.75rem; display: none; }
-  .form-feedback.show { display: block; }
-  .form-feedback.ok { color: var(--primary); }
-  .form-feedback.err { color: var(--terracotta); }
-  .consent-label { display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem; cursor: pointer; }
-  .consent-label input { margin-top: 0.2rem; }
-  .consent-label a { color: var(--primary); }
-  :root.dark-mode .consent-label a { color: #7FBF95; }
-  .note-tag { font-size: 0.78rem; color: var(--text-muted); font-style: italic; margin-top: 0.75rem; }
+  .btn-primary:disabled { opacity: 0.6; cursor: default; }
+  #mensaje { margin-top: 1.25rem; font-weight: 600; color: var(--primary); min-height: 1.4em; }
+
   footer { background: var(--ink); color: var(--paper); padding: 2.5rem 0; text-align: center; font-size: 0.85rem; }
   footer a { color: var(--paper); }
-  #sib-form-container .sib-form-block, #sib-form-container .sib-form-block p, #sib-form-container .entry__label, #sib-form-container .entry__specification {
-    font-family: 'Lora', serif !important; color: var(--ink) !important; background: transparent !important; text-align: left !important;
-  }
-  #sib-form-container .sib-form-block:first-of-type p { font-family: 'Archivo Black', sans-serif !important; font-size: 1.3rem !important; color: var(--ink) !important; }
-  .sib-form { background: transparent !important; text-align: left !important; }
-  #sib-container { background: transparent !important; border: none !important; max-width: 100% !important; }
-  #sib-form-container .input { font-family: 'Lora', serif !important; border: 1px solid var(--line) !important; background: var(--paper) !important; border-radius: 3px !important; }
-  #sib-form-container .sib-form-block__button { font-family: 'Lora', serif !important; background-color: var(--primary) !important; border-radius: 3px !important; }
-  #sib-form-container .sib-form-block__button:hover { background-color: var(--primary-light) !important; }
-  @media (max-width: 900px) { .contact-grid { grid-template-columns: 1fr; } }
 
-  /* mobile header: stack logo + controls on one row, links wrap below */
   @media (max-width: 760px) {
     .container { padding-left: 1.25rem; padding-right: 1.25rem; }
     nav { flex-wrap: wrap; gap: 0.85rem 1rem; }
@@ -93,11 +76,7 @@
     .nav-links { order: 3; width: 100%; flex-wrap: wrap; gap: 0.5rem 1.25rem; }
     .nav-links a { font-size: 0.9rem; }
   }
-
-  /* very small phones */
   @media (max-width: 520px) {
-    .steps { grid-template-columns: 1fr; }
-    .who-grid { grid-template-columns: 1fr; }
     .contact-card { padding: 1.75rem 1.25rem; }
   }
 </style>
@@ -111,7 +90,7 @@
         <ul class="nav-links">
           <li><a href="index.html">Home</a></li>
           <li><a href="book.html">Book</a></li>
-          <li><a href="consulting.html">Consulting &amp; Mortgages</a></li>
+          <li><a href="consulting.html">Consultancy &amp; Mortgages</a></li>
           <li><a href="about.html">About Me</a></li>
           <li><a href="contact.html" class="active">Contact</a></li>
         </ul>
@@ -123,84 +102,36 @@
     </div>
   </header>
 
-  <section class="page-hero">
+  <section class="contact-section">
     <div class="container">
-      <h1 class="display">Let's talk</h1>
-      <p>Write to me directly, or if you already have your code, redeem your free book below.</p>
-    </div>
-  </section>
-
-  <section class="container">
-    <div class="contact-grid">
+      <span style="display:inline-block; font-size:0.85rem; color:var(--terracotta); margin-bottom:1rem; font-style:italic;">Contact</span>
+      <h1 class="display">Get the free buyer's checklist</h1>
+      <p class="contact-lead">Leave your name and email and we will send you the checklist as a PDF, so you know what to check before you sign.</p>
 
       <div class="contact-card">
-        <h2 class="display">Message me on WhatsApp</h2>
-        <p>The fastest way to reach me. I answer personally.</p>
-        <a href="https://wa.me/javiervuler" class="btn btn-whatsapp" target="_blank" rel="noopener">
-          Message on WhatsApp
-        </a>
-      </div>
+        <form id="formulario">
+          <input type="hidden" name="idioma" value="en">
 
-      <div class="contact-card">
-        <h2 class="display">Get the free checklist</h2>
-        <p>The key points to check before signing any mortgage offer in Spain, sent straight to your inbox.</p>
-        <iframe width="540" height="680" src="https://99323c85.sibforms.com/v2/serve/MUIFAFw9d0yVgeqML8Y6R8ka-jovBEHXTAgDDlDjCnvOmZUultHpf-44lnxWROE9tFPiEozzfrGMTUQ_CC0darCSzscVSMzgfrcLlSOCEqsxwPs-nWhjqlAS1zycKUuhZDAlQ-STnKxSSTN1rGNaswZV4H3tHX0D0vKpbgOajJn5qt7QztR6tg8Xs0-nEcg9X73Uogus56i6VYnq4Q==" frameborder="0" scrolling="auto" allowfullscreen style="display: block; margin-left: auto; margin-right: auto; max-width: 100%;"></iframe>
-      </div>
+          <label for="nombre">Name</label>
+          <input type="text" id="nombre" name="nombre" required>
 
-      <div class="contact-card full-width">
-        <h2 class="display">Have a code for the free book?</h2>
-        <p>Enter your email and the code you received, and I'll send you the book by email instantly.</p>
-        <form id="form-canje" onsubmit="return canjearCodigo(event)">
-          <div class="form-row" style="flex-direction: row; flex-wrap: wrap;">
-            <input type="email" id="canje-email" placeholder="Your email" required style="flex: 1; min-width: 200px;">
-            <input type="text" id="canje-codigo" placeholder="Your code" required style="flex: 1; min-width: 150px;">
-          </div>
-          <label class="consent-label"><input type="checkbox" id="canje-consent" required> I have read and accept the <a href="privacy.html">Privacy Policy</a>.</label>
-          <button type="submit" id="canje-btn" class="btn btn-primary">Redeem code</button>
-          <p id="canje-feedback" class="form-feedback"></p>
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+
+          <div class="g-recaptcha" data-sitekey="6LcodPYtAAAAAP080zI8haa_fzpWHXH9k4XeznKG"></div>
+
+          <button type="submit" class="btn btn-primary">Get the checklist</button>
         </form>
-        <p class="note-tag">Note: the confirmation messages from the redemption system are still in Spanish for now.</p>
+        <p id="mensaje"></p>
       </div>
-
     </div>
   </section>
-
-  <script>
-    const URL_SCRIPT_CANJE = 'https://script.google.com/macros/s/AKfycbxofCTMkilYtPLwOOloLPkTl1DiA9ItIA4GjDCZMmAlKyi87sxYBWM1GiTuTULmxOBzlw/exec';
-
-    async function canjearCodigo(evento) {
-      evento.preventDefault();
-      const boton = document.getElementById('canje-btn');
-      const feedback = document.getElementById('canje-feedback');
-      const email = document.getElementById('canje-email').value.trim();
-      const codigo = document.getElementById('canje-codigo').value.trim();
-
-      feedback.classList.remove('show', 'ok', 'err');
-      boton.disabled = true;
-      boton.textContent = 'Sending...';
-
-      try {
-        const respuesta = await fetch(URL_SCRIPT_CANJE, { method: 'POST', body: JSON.stringify({ email, codigo }) });
-        const datos = await respuesta.json();
-        feedback.textContent = datos.message;
-        feedback.classList.add('show', datos.success ? 'ok' : 'err');
-      } catch (error) {
-        feedback.textContent = 'There was a connection problem. Please try again.';
-        feedback.classList.add('show', 'err');
-      } finally {
-        boton.disabled = false;
-        boton.textContent = 'Redeem code';
-      }
-      return false;
-    }
-  </script>
 
   <footer>
     <div class="container">
-      Vuler Press — Mortgage Advisory in Spain · Contact · <a href="privacy.html">Privacy</a>
+      Vuler Press — Mortgage Advisory in Spain · <a href="contact.html">Contact</a> · <a href="privacy.html">Privacy</a>
     </div>
   </footer>
-
 
   <script>
     (function() {
@@ -210,8 +141,7 @@
         htmlEl.classList.toggle('dark-mode', isDark);
         if (toggleBtn) toggleBtn.textContent = isDark ? '☀️' : '🌙';
       }
-      const stored = localStorage.getItem('colorScheme');
-      applyMode(stored === 'dark');
+      applyMode(localStorage.getItem('colorScheme') === 'dark');
       if (toggleBtn) {
         toggleBtn.addEventListener('click', function() {
           const nowDark = !htmlEl.classList.contains('dark-mode');
@@ -220,6 +150,35 @@
         });
       }
     })();
+  </script>
+
+  <script>
+    const URL_SCRIPT = 'https://script.google.com/macros/s/AKfycby8qy4JpMVNTnA7aPmb9ikeUTJK5EZVVXy469ZfwAt3JdGvzwR4hk8msCNo019kaK8-uQ/exec';
+
+    document.getElementById('formulario').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const form = e.target;
+      const mensaje = document.getElementById('mensaje');
+
+      if (grecaptcha.getResponse() === '') {
+        mensaje.textContent = 'Please tick "I\'m not a robot" first.';
+        return;
+      }
+
+      mensaje.textContent = 'Sending...';
+
+      fetch(URL_SCRIPT, {
+        method: 'POST',
+        mode: 'no-cors',
+        body: new URLSearchParams(new FormData(form))
+      }).then(function () {
+        mensaje.textContent = 'Done! Check your inbox, the checklist is on its way.';
+        form.reset();
+        grecaptcha.reset();
+      }).catch(function () {
+        mensaje.textContent = 'There was a problem sending the form. Please try again later.';
+      });
+    });
   </script>
 </body>
 </html>
