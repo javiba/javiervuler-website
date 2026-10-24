@@ -42,8 +42,9 @@
   .page-hero { padding: 2rem 0 1.5rem; text-align: center; }
   .page-hero h1 { font-size: 2.1rem; margin-bottom: 0.5rem; }
   .page-hero p { color: var(--text-secondary); max-width: 56ch; margin: 0 auto; font-size: 0.95rem; }
-  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; padding-bottom: 2rem; align-items: start; }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; padding-bottom: 2rem; align-items: stretch; }
   .stack { display: flex; flex-direction: column; gap: 1.5rem; }
+  .stack > .contact-card:last-child { flex: 1; }
   .contact-card { background: var(--surface); border: 1.5px solid var(--ink); padding: 1.6rem 1.9rem; position: relative; }
   .contact-card::before { content: ""; position: absolute; inset: 5px; border: 1px solid var(--line); pointer-events: none; }
   .contact-card h2 { font-size: 1.25rem; margin-bottom: 0.5rem; }
@@ -188,6 +189,7 @@
                     <label class="entry__specification">Entrez votre e-mail pour vous inscrire. Ex. : abc@xyz.com</label>
                   </div>
                 </div>
+                <label class="consent-label" style="margin-top: 0.8rem;"><input type="checkbox" name="CONSENT" id="CONSENT" required> <span>J'ai lu et j'accepte la <a href="privacy.html">Politique de Confidentialité</a>.</span></label>
                 <div class="sib-form-block" style="margin-top: 0.8rem;">
                   <button class="sib-form-block__button sib-form-block__button-with-loader" form="sib-form" type="submit">
                     <svg class="icon clickable__icon progress-indicator__icon sib-hide-loader-icon" viewBox="0 0 512 512"><path d="M460.116 373.846l-20.823-12.022c-5.541-3.199-7.54-10.159-4.663-15.874 30.137-59.886 28.343-131.652-5.386-189.946-33.641-58.394-94.896-95.833-161.827-99.676C261.028 55.961 256 50.751 256 44.352V20.309c0-6.904 5.808-12.337 12.703-11.982 83.556 4.306 160.163 50.864 202.11 123.677 42.063 72.696 44.079 162.316 6.031 236.832-3.14 6.148-10.75 8.461-16.728 5.01z" /></svg>
@@ -205,74 +207,4 @@
           window.LOCALE = 'fr';
           window.EMAIL_INVALID_MESSAGE = window.SMS_INVALID_MESSAGE = "Les informations fournies ne sont pas valides. Merci de vérifier le format du champ et de réessayer.";
           window.REQUIRED_ERROR_MESSAGE = "Ce champ ne peut pas être laissé vide. ";
-          window.GENERIC_INVALID_MESSAGE = "Les informations fournies ne sont pas valides. Merci de vérifier le format du champ et de réessayer.";
-          window.INVALID_NUMBER = "Les informations fournies ne sont pas valides. Merci de vérifier le format du champ et de réessayer.";
-          window.INVALID_DATE = "Entrez une date valide";
-          window.REQUIRED_MULTISELECT_MESSAGE = 'Choisissez au moins une option';
-          window.translation = { common: { selectedList: '{quantity} liste sélectionnée', selectedLists: '{quantity} listes sélectionnées', selectedOption: '{quantity} sélectionné', selectedOptions: '{quantity} sélectionnés' } };
-          var AUTOHIDE = Boolean(0);
-        </script>
-        <script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
-      </div>
-
-    </div>
-  </section>
-
-  <script>
-    const URL_SCRIPT_CANJE = 'https://script.google.com/macros/s/AKfycbxofCTMkilYtPLwOOloLPkTl1DiA9ItIA4GjDCZMmAlKyi87sxYBWM1GiTuTULmxOBzlw/exec';
-
-    async function canjearCodigo(evento) {
-      evento.preventDefault();
-      const boton = document.getElementById('canje-btn');
-      const feedback = document.getElementById('canje-feedback');
-      const email = document.getElementById('canje-email').value.trim();
-      const codigo = document.getElementById('canje-codigo').value.trim();
-
-      feedback.classList.remove('show', 'ok', 'err');
-      boton.disabled = true;
-      boton.textContent = 'Envoi...';
-
-      try {
-        const respuesta = await fetch(URL_SCRIPT_CANJE, { method: 'POST', body: JSON.stringify({ email, codigo }) });
-        const datos = await respuesta.json();
-        feedback.textContent = datos.message;
-        feedback.classList.add('show', datos.success ? 'ok' : 'err');
-      } catch (error) {
-        feedback.textContent = 'Un problème de connexion est survenu. Merci de réessayer.';
-        feedback.classList.add('show', 'err');
-      } finally {
-        boton.disabled = false;
-        boton.textContent = 'Échanger le code';
-      }
-      return false;
-    }
-  </script>
-
-  <footer>
-    <div class="container">
-      Vuler Press — Conseil Hypothécaire en Espagne · Contact · <a href="privacy.html">Confidentialité</a>
-    </div>
-  </footer>
-
-  <script>
-    (function() {
-      const htmlEl = document.documentElement;
-      const toggleBtn = document.getElementById('dark-mode-toggle');
-      function applyMode(isDark) {
-        htmlEl.classList.toggle('dark-mode', isDark);
-        if (toggleBtn) toggleBtn.textContent = isDark ? '☀️' : '🌙';
-      }
-      const stored = localStorage.getItem('colorScheme');
-      applyMode(stored === 'dark');
-      if (toggleBtn) {
-        toggleBtn.addEventListener('click', function() {
-          const nowDark = !htmlEl.classList.contains('dark-mode');
-          applyMode(nowDark);
-          localStorage.setItem('colorScheme', nowDark ? 'dark' : 'light');
-        });
-      }
-    })();
-  </script>
-
-</body>
-</html>
+          window.GENERIC_INVALID_MESSAGE = "Les
