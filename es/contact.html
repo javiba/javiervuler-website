@@ -1,27 +1,18 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contacto | Vuler Press</title>
+<title>Contacto — Vuler Press</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <style>
-  :root {
-    --ink: #1C2B22;
-    --primary: #2D5A3D;
-    --primary-light: #3D7A4D;
-    --terracotta: #B8654A;
-    --paper: #F5EFE1;
-    --stone: #EAE0CB;
-    --line: #D8CBA8;
-    --white: #FFFDF8;
+  :root { --ink: #1C2B22; --primary: #2D5A3D; --primary-light: #3D7A4D; --terracotta: #B8654A; --paper: #F5EFE1; --stone: #EAE0CB; --line: #D8CBA8; --white: #FFFDF8;
     --text-secondary: #4A4032;
     --text-muted: #8a7c5c;
-    --surface: var(--white);
-  }
+    --surface: var(--white); --whatsapp: #25D366; }
   :root.dark-mode {
     --ink: #F5EFE1;
     --paper: #1C2B22;
@@ -39,149 +30,32 @@
   .nav-right { display: flex; align-items: center; gap: 1rem; }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body { font-family: 'Lora', Georgia, serif; font-size: 17px; line-height: 1.65; color: var(--ink); background: var(--paper); }
+  body { font-family: 'Lora', Georgia, serif; font-size: 16px; line-height: 1.55; color: var(--ink); background: var(--paper); }
   .display { font-family: 'Archivo Black', 'Helvetica Neue', sans-serif; line-height: 1.1; letter-spacing: -0.01em; }
   .container { max-width: 1180px; margin: 0 auto; padding: 0 2rem; }
-
-  header { padding: 1.75rem 0; border-bottom: 1px solid var(--line); }
+  header { padding: 1.1rem 0; border-bottom: 1px solid var(--line); }
   nav { display: flex; justify-content: space-between; align-items: center; }
-  .logo { font-family: 'Archivo Black', sans-serif; font-size: 1.15rem; color: var(--ink); text-decoration: none; }
-  .nav-links { display: flex; gap: 2.25rem; list-style: none; }
-  .nav-links a { color: var(--ink); text-decoration: none; font-size: 0.95rem; }
+  .logo { font-family: 'Archivo Black', sans-serif; font-size: 1.1rem; color: var(--ink); text-decoration: none; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { color: var(--ink); text-decoration: none; font-size: 0.93rem; }
   .nav-links a.active { color: var(--primary); font-weight: 600; }
   .nav-links a:hover { color: var(--primary); }
-
-  .contact-section { padding: 4.5rem 0; }
-  .contact-section h1 { font-size: 2.4rem; color: var(--ink); margin-bottom: 1rem; max-width: 18ch; }
-  .contact-lead { color: var(--text-secondary); max-width: 52ch; margin-bottom: 2.5rem; font-size: 1.05rem; }
-  .contact-card { background: var(--surface); border: 1.5px solid var(--ink); padding: 2.5rem 2rem; max-width: 560px; }
-  .contact-card label { display: block; margin-top: 1.25rem; font-family: 'Lora', serif; font-weight: 600; color: var(--ink); }
-  .contact-card input[type="text"], .contact-card input[type="email"] { width: 100%; padding: 0.75rem; margin-top: 0.4rem; font-family: 'Lora', serif; font-size: 1rem; background: var(--paper); color: var(--ink); border: 1px solid var(--line); border-radius: 3px; }
-  .contact-card .g-recaptcha { margin-top: 1.5rem; }
-  .btn { padding: 0.9rem 1.75rem; font-family: 'Lora', serif; font-weight: 600; font-size: 0.95rem; text-decoration: none; display: inline-block; border-radius: 3px; border: 1.5px solid transparent; cursor: pointer; }
-  .btn-primary { background: var(--primary); color: var(--white); margin-top: 1.5rem; }
+  .page-hero { padding: 2rem 0 1.5rem; text-align: center; }
+  .page-hero h1 { font-size: 2.1rem; margin-bottom: 0.5rem; }
+  .page-hero p { color: var(--text-secondary); max-width: 56ch; margin: 0 auto; font-size: 0.95rem; }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; padding-bottom: 2rem; align-items: stretch; }
+  .stack { display: flex; flex-direction: column; gap: 1.5rem; }
+  .stack > .contact-card:last-child { flex: 1; }
+  .contact-card { background: var(--surface); border: 1.5px solid var(--ink); padding: 1.6rem 1.9rem; position: relative; }
+  .contact-card::before { content: ""; position: absolute; inset: 5px; border: 1px solid var(--line); pointer-events: none; }
+  .contact-card h2 { font-size: 1.25rem; margin-bottom: 0.5rem; }
+  .contact-card > p { color: var(--text-secondary); font-size: 0.92rem; margin-bottom: 1rem; }
+  .btn { padding: 0.75rem 1.5rem; font-family: 'Lora', serif; font-weight: 600; font-size: 0.93rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.6rem; border-radius: 3px; border: 1.5px solid transparent; cursor: pointer; }
+  .btn-whatsapp { background: var(--whatsapp); color: var(--white); }
+  .btn-whatsapp:hover { opacity: 0.9; }
+  .btn-primary { background: var(--primary); color: var(--white); }
   .btn-primary:hover { background: var(--primary-light); }
-  .btn-primary:disabled { opacity: 0.6; cursor: default; }
-  #mensaje { margin-top: 1.25rem; font-weight: 600; color: var(--primary); min-height: 1.4em; }
-
-  footer { background: var(--ink); color: var(--paper); padding: 2.5rem 0; text-align: center; font-size: 0.85rem; }
-  footer a { color: var(--paper); }
-
-  @media (max-width: 760px) {
-    .container { padding-left: 1.25rem; padding-right: 1.25rem; }
-    nav { flex-wrap: wrap; gap: 0.85rem 1rem; }
-    .logo { order: 1; }
-    .nav-right { order: 2; margin-left: auto; gap: 0.6rem; }
-    .nav-links { order: 3; width: 100%; flex-wrap: wrap; gap: 0.5rem 1.25rem; }
-    .nav-links a { font-size: 0.9rem; }
-  }
-  @media (max-width: 520px) {
-    .contact-card { padding: 1.75rem 1.25rem; }
-  }
-</style>
-  <link rel="canonical" href="https://www.javiervuler.com/es/contact.html" />
-<link rel="alternate" hreflang="en" href="https://www.javiervuler.com/en/contact.html" />
-<link rel="alternate" hreflang="es" href="https://www.javiervuler.com/es/contact.html" />
-<link rel="alternate" hreflang="fr" href="https://www.javiervuler.com/fr/contact.html" />
-<link rel="alternate" hreflang="x-default" href="https://www.javiervuler.com/en/contact.html" />
-</head>
-<body>
-
-  <header>
-    <div class="container">
-      <nav>
-        <a href="index.html" class="logo">Vuler Press</a>
-        <ul class="nav-links">
-          <li><a href="index.html">Inicio</a></li>
-          <li><a href="book.html">Libro</a></li>
-          <li><a href="consulting.html">Consultoría e Hipotecas</a></li>
-          <li><a href="about.html">Sobre Mí</a></li>
-          <li><a href="contact.html" class="active">Contacto</a></li>
-        </ul>
-        <div class="nav-right">
-          <div class="lang-selector"><a href="../en/contact.html">EN</a><a href="../es/contact.html" class="active">ES</a><a href="../fr/contact.html">FR</a></div>
-          <button id="dark-mode-toggle" class="mode-toggle" aria-label="Toggle dark mode">🌙</button>
-        </div>
-      </nav>
-    </div>
-  </header>
-
-  <section class="contact-section">
-    <div class="container">
-      <span class="kicker" style="display:inline-block; font-size:0.85rem; color:var(--terracotta); margin-bottom:1rem; font-style:italic;">Contacto</span>
-      <h1 class="display">Pedí tu checklist del comprador</h1>
-      <p class="contact-lead">Dejanos tu nombre y tu email y te enviamos el checklist en PDF, para que sepas qué mirar antes de firmar.</p>
-
-      <div class="contact-card">
-        <form id="formulario">
-          <label for="nombre">Nombre</label>
-          <input type="text" id="nombre" name="nombre" required>
-
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" required>
-
-          <div class="g-recaptcha" data-sitekey="6LcodPYtAAAAAP080zI8haa_fzpWHXH9k4XeznKG"></div>
-
-          <button type="submit" class="btn btn-primary">Quiero el checklist</button>
-        </form>
-        <p id="mensaje"></p>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="container">
-      Vuler Press — Asesoría Hipotecaria en España · <a href="contact.html">Contacto</a> · <a href="privacy.html">Privacidad</a>
-    </div>
-  </footer>
-
-  <script>
-    (function() {
-      const htmlEl = document.documentElement;
-      const toggleBtn = document.getElementById('dark-mode-toggle');
-      function applyMode(isDark) {
-        htmlEl.classList.toggle('dark-mode', isDark);
-        if (toggleBtn) toggleBtn.textContent = isDark ? '☀️' : '🌙';
-      }
-      applyMode(localStorage.getItem('colorScheme') === 'dark');
-      if (toggleBtn) {
-        toggleBtn.addEventListener('click', function() {
-          const nowDark = !htmlEl.classList.contains('dark-mode');
-          applyMode(nowDark);
-          localStorage.setItem('colorScheme', nowDark ? 'dark' : 'light');
-        });
-      }
-    })();
-  </script>
-
-  <script>
-    const URL_SCRIPT = 'https://script.google.com/macros/s/AKfycbxkUTePQIT5G7tQq5Rw6F93nMuMmHj03oPxjMO9VUujCpgzwHFPu9J94wPCpNiWoKrr/exec';
-
-    document.getElementById('formulario').addEventListener('submit', function (e) {
-      e.preventDefault();
-      const form = e.target;
-      const mensaje = document.getElementById('mensaje');
-
-      if (grecaptcha.getResponse() === '') {
-        mensaje.textContent = 'Primero marcá la casilla "No soy un robot".';
-        return;
-      }
-
-      mensaje.textContent = 'Enviando...';
-
-      fetch(URL_SCRIPT, {
-        method: 'POST',
-        mode: 'no-cors',
-        body: new URLSearchParams(new FormData(form))
-      }).then(function () {
-        mensaje.textContent = '¡Listo! Revisá tu correo, te va a llegar el checklist.';
-        form.reset();
-        grecaptcha.reset();
-      }).catch(function () {
-        mensaje.textContent = 'Hubo un problema al enviar. Probá de nuevo en un rato.';
-      });
-    });
-  </script>
-</body>
-</html>
+  .canje-fields { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 0.8rem; }
+  .canje-fields input { flex: 1; min-width: 180px; padding: 0.6rem 0.9rem; border: 1px solid var(--line); background: var(--paper); font-family: 'Lora', serif; font-size: 0.93rem; border-radius: 3px; color: var(--ink); }
+  .canje-fields input:focus { outline: 2px solid var(--primary); }
+  .form-feedback {
