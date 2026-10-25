@@ -176,4 +176,105 @@
             </div>
             <div></div>
             <div id="sib-container" class="sib-container--large sib-container--vertical" style="direction:ltr">
-              <form id="sib-form" method="POST" action="https://99323c85.sibforms.com/serve/MUIFAPvoCXO1R3U1uRIfogLAj98RmocnmRzJLr04P0KhJGqCOzaknFRY07xZuJ2kwFb7L4PjBoL7rax6TwaHInLzhaR_iKnXdqkTMDsjcZf4D2fkvqXKz5mcsc8O74UGBlth
+              <form id="sib-form" method="POST" action="https://99323c85.sibforms.com/serve/MUIFAPvoCXO1R3U1uRIfogLAj98RmocnmRzJLr04P0KhJGqCOzaknFRY07xZuJ2kwFb7L4PjBoL7rax6TwaHInLzhaR_iKnXdqkTMDsjcZf4D2fkvqXKz5mcsc8O74UGBlth7dcvYWREcSTigFy6LLk2liPmyBH7WrZmK7PBF79tFIo0zpezf2Y-hYXkX-4cm8tIju3FD6xSAPMrAQ==" data-type="subscription">
+                <div class="sib-input sib-form-block">
+                  <div class="form__entry entry_block">
+                    <div class="form__label-row ">
+                      <label class="entry__label" for="EMAIL" data-required="*">Introduzca su e-mail para recibirla</label>
+                      <div class="entry__field">
+                        <input class="input " type="text" id="EMAIL" name="EMAIL" autocomplete="off" value="" placeholder="Su e-mail" data-required="true" required />
+                      </div>
+                    </div>
+                    <label class="entry__error entry__error--primary" style="font-family:Helvetica, sans-serif; font-size:16px; text-align:left; color:#661d1d; background-color:#ffeded; border-color:#ff4949; border-radius:3px;"></label>
+                    <label class="entry__specification">Introduzca su e-mail para inscribirse. Ej.: abc@xyz.com</label>
+                  </div>
+                </div>
+                <label class="consent-label" style="margin-top: 0.8rem;"><input type="checkbox" name="OPT_IN" id="OPT_IN" value="1" required> <span>He leído y acepto la <a href="privacy.html">Política de Privacidad</a>.</span></label>
+                <div class="sib-form-block" style="margin-top: 0.8rem;">
+                  <button class="sib-form-block__button sib-form-block__button-with-loader" form="sib-form" type="submit">
+                    <svg class="icon clickable__icon progress-indicator__icon sib-hide-loader-icon" viewBox="0 0 512 512"><path d="M460.116 373.846l-20.823-12.022c-5.541-3.199-7.54-10.159-4.663-15.874 30.137-59.886 28.343-131.652-5.386-189.946-33.641-58.394-94.896-95.833-161.827-99.676C261.028 55.961 256 50.751 256 44.352V20.309c0-6.904 5.808-12.337 12.703-11.982 83.556 4.306 160.163 50.864 202.11 123.677 42.063 72.696 44.079 162.316 6.031 236.832-3.14 6.148-10.75 8.461-16.728 5.01z" /></svg>
+                    Lo quiero
+                  </button>
+                </div>
+                <input type="text" name="email_address_check" value="" class="input--hidden">
+                <input type="hidden" name="locale" value="es">
+              </form>
+            </div>
+          </div>
+        </div>
+        <script>
+          window.REQUIRED_CODE_ERROR_MESSAGE = 'Elija un prefijo de país';
+          window.LOCALE = 'es';
+          window.EMAIL_INVALID_MESSAGE = window.SMS_INVALID_MESSAGE = "La información proporcionada no es válida. Compruebe el formato del campo e inténtelo de nuevo.";
+          window.REQUIRED_ERROR_MESSAGE = "Este campo no puede estar vacío. ";
+          window.GENERIC_INVALID_MESSAGE = "La información proporcionada no es válida. Compruebe el formato del campo e inténtelo de nuevo.";
+          window.INVALID_NUMBER = "La información proporcionada no es válida. Compruebe el formato del campo e inténtelo de nuevo.";
+          window.INVALID_DATE = "Introduzca una fecha válida";
+          window.REQUIRED_MULTISELECT_MESSAGE = 'Elija al menos una opción';
+          window.translation = { common: { selectedList: '{quantity} lista seleccionada', selectedLists: '{quantity} listas seleccionadas', selectedOption: '{quantity} seleccionado', selectedOptions: '{quantity} seleccionados' } };
+          var AUTOHIDE = Boolean(0);
+        </script>
+        <script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
+      </div>
+
+    </div>
+  </section>
+
+  <script>
+    const URL_SCRIPT_CANJE = 'https://script.google.com/macros/s/AKfycbwdWK-TvktyzSVC_LBl2zF2UTngC7uIl38V9SUY0EwUmJBwqhdLrUK4FF2RBcPmLs7FMQ/exec';
+
+    async function canjearCodigo(evento) {
+      evento.preventDefault();
+      const boton = document.getElementById('canje-btn');
+      const feedback = document.getElementById('canje-feedback');
+      const email = document.getElementById('canje-email').value.trim();
+      const codigo = document.getElementById('canje-codigo').value.trim();
+
+      feedback.classList.remove('show', 'ok', 'err');
+      boton.disabled = true;
+      boton.textContent = 'Enviando...';
+
+      try {
+        const respuesta = await fetch(URL_SCRIPT_CANJE, { method: 'POST', body: JSON.stringify({ email, codigo, idioma: 'es' }) });
+        const datos = await respuesta.json();
+        feedback.textContent = datos.message;
+        feedback.classList.add('show', datos.success ? 'ok' : 'err');
+      } catch (error) {
+        feedback.textContent = 'Se ha producido un problema de conexión. Inténtelo de nuevo.';
+        feedback.classList.add('show', 'err');
+      } finally {
+        boton.disabled = false;
+        boton.textContent = 'Canjear el código';
+      }
+      return false;
+    }
+  </script>
+
+  <footer>
+    <div class="container">
+      Vuler Press — Asesoría Hipotecaria en España · Contacto · <a href="privacy.html">Privacidad</a>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      const htmlEl = document.documentElement;
+      const toggleBtn = document.getElementById('dark-mode-toggle');
+      function applyMode(isDark) {
+        htmlEl.classList.toggle('dark-mode', isDark);
+        if (toggleBtn) toggleBtn.textContent = isDark ? '☀️' : '🌙';
+      }
+      const stored = localStorage.getItem('colorScheme');
+      applyMode(stored === 'dark');
+      if (toggleBtn) {
+        toggleBtn.addEventListener('click', function() {
+          const nowDark = !htmlEl.classList.contains('dark-mode');
+          applyMode(nowDark);
+          localStorage.setItem('colorScheme', nowDark ? 'dark' : 'light');
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>
