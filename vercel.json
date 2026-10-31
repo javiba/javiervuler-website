@@ -2,13 +2,19 @@
   "redirects": [
     {
       "source": "/",
-      "destination": "/es/",
-      "permanent": true
+      "has": [{ "type": "header", "key": "accept-language", "value": "(?<lang>fr|es|en).*" }],
+      "destination": "/:lang/",
+      "permanent": false
+    },
+    {
+      "source": "/",
+      "destination": "/en/",
+      "permanent": false
     },
     {
       "source": "/index.html",
-      "destination": "/es/",
-      "permanent": true
+      "destination": "/en/",
+      "permanent": false
     }
   ]
 }
