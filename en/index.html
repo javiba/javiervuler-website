@@ -171,13 +171,108 @@
         </div>
       </div>
       <div class="book-cover-panel">
-        <img class="book-cover-img" alt="Buying Properties in Spain — book cover" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEP
-ERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4e
-Hh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAPAAlgDASIA
-AhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQA
-AAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3
-ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWm
-p6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEA
-AwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSEx
-BhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElK
-U1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKk
+        <img class="book-cover-img" alt="Buying Properties in Spain — book cover" src="/en/cover.jpg">
+      </div>
+    </div>
+  </section>
+
+  <section class="bridge">
+    <div class="container bridge-grid">
+      <div>
+        <h2 class="display">Ready to take the next step?</h2>
+        <p>The book gives you the map. If you want someone to walk the process with you, I offer personalized mortgage advisory for international buyers, with more than 10 years working in real estate and mortgage advisory across several countries.</p>
+        <a href="/en/consulting.html" class="btn btn-primary" style="margin-top: 1rem;">Learn about the advisory</a>
+      </div>
+      <div class="trust-panel">
+        <div class="trust-stat">
+          <span class="num">10+</span>
+          <span class="label">years in real estate and mortgage advisory, across several countries</span>
+        </div>
+        <div class="trust-stat">
+          <span class="num">3</span>
+          <span class="label">working languages: Spanish, English, and French</span>
+        </div>
+        <div class="trust-stat">
+          <span class="num">1st</span>
+          <span class="label">consultation to understand your case, no obligation</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="process">
+    <div class="container">
+      <h2 class="display">The road to signing</h2>
+      <p class="process-lead">The real process I work with, exactly as I explain it to every client.</p>
+      <div class="steps">
+        <div class="step">
+          <span class="step-num display">01</span>
+          <h3>Diagnosis</h3>
+          <p>We start from your situation: whether you already have a property in mind or want to know upfront how much the bank could lend you, and we review income, work history, marital status, and tax filings to determine your borrowing capacity.</p>
+        </div>
+        <div class="step">
+          <span class="step-num display">02</span>
+          <h3>Banks and first validation</h3>
+          <p>I choose the banks that best match your profile and offer the best conditions. Their business managers give us a first read on feasibility and terms.</p>
+        </div>
+        <div class="step">
+          <span class="step-num display">03</span>
+          <h3>Valuation and Risk</h3>
+          <p>Once the deposit is signed, the valuation is carried out, and the file moves to the bank's Risk department, which gives final approval.</p>
+        </div>
+        <div class="step">
+          <span class="step-num display">04</span>
+          <h3>Offer and signing</h3>
+          <p>The bank issues the FEIN and the FiAE (binding offer). You choose the notary, complete the legal transparency formalities, and we get to the deed together.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="why">
+    <div class="container">
+      <h2 class="display">How I can help you</h2>
+      <div class="why-grid">
+        <div class="why-card">
+          <h3>I know the system from the inside</h3>
+          <p>More than a decade working in real estate and mortgage advisory across several countries, not reading about it.</p>
+        </div>
+        <div class="why-card">
+          <h3>I speak your language, literally</h3>
+          <p>Consultations in Spanish, English, or French, without losing nuance in translation.</p>
+        </div>
+        <div class="why-card">
+          <h3>No fine print</h3>
+          <p>I walk you through the bank's processes step by step, the terms they offer you, and I do what I can to improve the offer you end up receiving.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      Vuler Press — Mortgage Advisory in Spain · <a href="/en/contact.html">Contact</a> · <a href="/en/privacy.html">Privacy</a>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      const htmlEl = document.documentElement;
+      const toggleBtn = document.getElementById('dark-mode-toggle');
+      function applyMode(isDark) {
+        htmlEl.classList.toggle('dark-mode', isDark);
+        if (toggleBtn) toggleBtn.textContent = isDark ? '☀️' : '🌙';
+      }
+      const stored = localStorage.getItem('colorScheme');
+      applyMode(stored === 'dark');
+      if (toggleBtn) {
+        toggleBtn.addEventListener('click', function() {
+          const nowDark = !htmlEl.classList.contains('dark-mode');
+          applyMode(nowDark);
+          localStorage.setItem('colorScheme', nowDark ? 'dark' : 'light');
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
