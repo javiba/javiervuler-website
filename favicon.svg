@@ -7,7 +7,7 @@
     <polygon points="128,226 114,190 142,190"/>
     <polygon points="30,128 66,114 66,142"/>
   </g>
-  <g transform="translate(128 128) rotate(35)">
+  <g transform="translate(128 128) rotate(55)">
     <rect x="-13" y="-70" width="26" height="140" rx="13" fill="#B8654A" stroke="#F9F7F4" stroke-width="5"/>
     <polygon points="-9,70 9,70 0,96" fill="#B8654A" stroke="#F9F7F4" stroke-width="5"/>
   </g>
